@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logo Clothing Shop | Corporate Gifting Overview</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.4in 0.5in;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-size: 9.25pt;
+      line-height: 1.35;
+      color: #2a2724;
+      background: #fff;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.4in 0.5in;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #b87333;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .logo-wrap img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-bridge {
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: #7a7268;
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .contact-block {
+      text-align: right;
+      font-size: 8.25pt;
+      color: #5c564e;
+      line-height: 1.45;
+    }
+
+    .contact-block strong { color: #1a1816; }
+
+    .contact-block a {
+      color: #8f5a28;
+      text-decoration: none;
+    }
+
+    .hero {
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14.5pt;
+      font-weight: 600;
+      color: #1a1816;
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .hero p {
+      font-size: 9.25pt;
+      color: #5c564e;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .box {
+      background: #faf9f7;
+      border: 1px solid #e8e4dd;
+      border-radius: 4px;
+      padding: 9px 11px;
+    }
+
+    .box h2 {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b87333;
+      margin-bottom: 5px;
+    }
+
+    .box ul {
+      padding-left: 14px;
+      margin: 0;
+    }
+
+    .box li {
+      margin-bottom: 2px;
+      font-size: 8.5pt;
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+
+    .steps li {
+      font-size: 7.5pt;
+      text-align: center;
+      padding: 5px 3px;
+      background: #fff;
+      border: 1px solid #e8e4dd;
+      border-radius: 4px;
+    }
+
+    .steps strong {
+      display: block;
+      font-size: 7.5pt;
+      color: #b87333;
+      margin-bottom: 2px;
+    }
+
+    .cases h2 {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b87333;
+      margin-bottom: 7px;
+    }
+
+    .case-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .case {
+      border-left: 3px solid #b87333;
+      padding: 3px 0 3px 8px;
+    }
+
+    .case h3 {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #1a1816;
+      margin-bottom: 2px;
+    }
+
+    .case .tag {
+      font-size: 6.75pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7a7268;
+      margin-bottom: 3px;
+    }
+
+    .case p {
+      font-size: 7.75pt;
+      color: #5c564e;
+      line-height: 1.32;
+    }
+
+    .cta {
+      background: #2a2724;
+      color: #faf9f7;
+      border-radius: 4px;
+      padding: 11px 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cta-text h2 {
+      font-family: Georgia, serif;
+      font-size: 10.5pt;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .cta-text p {
+      font-size: 8pt;
+      color: #d4cfc4;
+      margin-bottom: 4px;
+    }
+
+    .cta-text a {
+      color: #d4956a;
+      font-size: 8.25pt;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .cta-contact {
+      text-align: right;
+      font-size: 8.25pt;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+
+    .cta-contact a { color: #d4956a; text-decoration: none; }
+
+    .footer {
+      margin-top: 8px;
+      font-size: 7.25pt;
+      color: #a89f8f;
+      text-align: center;
+    }
+
+    @media print {
+      body { padding: 0; }
+      .box, .case, .cta { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div>
+      <div class="logo-wrap">
+        <img src="logo-clothing-shop-tall.png" alt="Logo Clothing Shop">
+      </div>
+      <div class="brand-bridge">Corporate gifting · Michigan · Introducing Stitch &amp; Stone Co.</div>
+    </div>
+    <div class="contact-block">
+      <strong>Joe Toma</strong><br>
+      Business Development Director<br>
+      <a href="mailto:[your Logo Clothing Shop email]">[your Logo Clothing Shop email]</a><br>
+      Office: (248) 382-8182 · Cell: (248) 470-9926<br>
+      280 N Old Woodward Ave, Suite 100<br>
+      Birmingham, MI 48009
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Corporate gifting programs, curated and produced in-house.</h1>
+    <p>For marketing and HR teams who want gifts that feel intentional, not leftover swag. We learn your culture, curate the package, produce embroidery and screen print at our Michigan shop, and deliver. Including ship-to-home holiday programs.</p>
+  </section>
+
+  <div class="grid-2">
+    <div class="box">
+      <h2>What we do</h2>
+      <ul>
+        <li>Employee appreciation &amp; milestone programs</li>
+        <li>Client &amp; referral thank-you gifting</li>
+        <li>Holiday ship-to-home programs</li>
+        <li>Event experiences &amp; premium swag</li>
+        <li>Ongoing apparel &amp; promo, one partner</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><strong>1 · Discover</strong>Goals, recipients &amp; timeline</li>
+        <li><strong>2 · Curate</strong>Packages for your brand</li>
+        <li><strong>3 · Produce</strong>In-house embroidery &amp; print</li>
+        <li><strong>4 · Deliver</strong>One site or many addresses</li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="cases">
+    <h2>Recent work</h2>
+    <div class="case-row">
+        <article class="case">
+        <div class="tag">Manufacturing · Client Gifting</div>
+        <h3>Weldaloy</h3>
+        <p>300 custom solar chargers to every client. Norm called back: &ldquo;Can we get any more? People loved the gifts.&rdquo; Follow-on: 500 premium cable kits shipped to France.</p>
+      </article>
+      <article class="case">
+        <div class="tag">Financial &amp; Insurance</div>
+        <h3>Orfin &amp; Associates</h3>
+        <p>~80 blankets in 10 days when 4imprint couldn&rsquo;t. Now a curated gifting catalog and ongoing client appreciation. Laura D.: &ldquo;You&rsquo;re my guy.&rdquo;</p>
+      </article>
+      <article class="case">
+        <div class="tag">Law · Events</div>
+        <h3>Ven Johnson Law</h3>
+        <p>Nats at the Zoo in Kalamazoo. 800+ hoodies, tees, and hats. Sold out at the event. Ongoing partner with Marketing Director Holly Q.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-text">
+      <h2>Plan a Gifting Program</h2>
+      <p>30-minute curation call. Tell us the occasion and we&rsquo;ll bring ideas.</p>
+      <a href="https://meetings.hubspot.com/joe-toma/introductory-call">Book: meetings.hubspot.com/joe-toma/introductory-call</a>
+    </div>
+    <div class="cta-contact">
+      [your Logo Clothing Shop email]<br>
+      (248) 382-8182<br>
+      (248) 470-9926 cell
+    </div>
+  </section>
+
+  <p class="footer">Logo Clothing Shop · Birmingham, MI · Embroidery · Screen printing · Full-color decoration · Promotional products</p>
+
+</body>
+</html>

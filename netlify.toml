@@ -1,0 +1,9 @@
+# Netlify — publish website only (not sales content)
+# See docs/DEPLOYMENT.md
+
+[build]
+  publish = "site"
+  command = "echo Static site — no build step"
+
+# Optional: regenerate case studies before deploy (uncomment when ready)
+# command = "python scripts/generate-case-studies.py"
