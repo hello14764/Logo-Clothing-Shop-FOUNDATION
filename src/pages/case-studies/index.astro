@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CaseStudyCard from '@/components/CaseStudyCard.astro';
+import CTABand from '@/components/CTABand.astro';
+import PageHero from '@/components/PageHero.astro';
+import Section from '@/components/Section.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import { getCaseStudiesByGroup, getFeaturedCaseStudies } from '@/lib/caseStudies';
+
+const featured = getFeaturedCaseStudies();
+const byGroup = getCaseStudiesByGroup();
+---
+
+<BaseLayout
+  title="Case Studies"
+  description="Case studies in corporate gifting, embroidery, and branded apparel. Michigan companies trust Logo Clothing Shop."
+>
+  <PageHero
+    title="Case studies"
+    lead="Curated gifting, precision embroidery, and branded programs. Real work for Michigan organizations."
+  />
+
+  <Section>
+    <SectionHeader
+      title="Featured"
+      description="Gifting, law, nonprofit, and trades. A sample of how we partner with clients."
+    />
+    <div class="grid gap-6 md:grid-cols-2">
+      {featured.map((study) => <CaseStudyCard study={study} />)}
+    </div>
+  </Section>
+
+  <Section tone="alt">
+    {
+      [...byGroup.entries()].map(([group, studies]) => (
+        <div class="mb-12 last:mb-0">
+          <h2 class="mb-6 text-2xl text-navy">{group}</h2>
+          <div class="grid gap-6 md:grid-cols-3">
+            {studies.map((study) => (
+              <article class="rounded-lg border border-stone/60 bg-white p-6 shadow-sm">
+                <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-gold">{study.category}</p>
+                <h3 class="mb-3 text-xl">
+                  <a href={`/case-studies/${study.slug}/`} class="text-navy no-underline hover:text-navy-light">
+                    {study.title}
+                  </a>
+                </h3>
+                <p class="mb-4 text-muted">{study.card_teaser}</p>
+                <a
+                  href={`/case-studies/${study.slug}/`}
+                  class="text-sm font-semibold text-navy no-underline hover:text-navy-light"
+                >
+                  Read case study
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </Section>
+
+  <CTABand
+    title="Your story could be next"
+    description="Tell us about your team, event, or gifting program."
+  />
+</BaseLayout>

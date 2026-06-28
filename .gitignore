@@ -14,5 +14,10 @@ Thumbs.db
 __pycache__/
 *.pyc
 
+# Node / Astro
+node_modules/
+dist/
+.astro/
+
 # Optional: keep sales entirely local (uncomment to exclude from GitHub)
 # content/sales/

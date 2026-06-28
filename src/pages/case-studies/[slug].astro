@@ -1,0 +1,79 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CTABand from '@/components/CTABand.astro';
+import PageHero from '@/components/PageHero.astro';
+import Section from '@/components/Section.astro';
+import { caseStudies, renderList } from '@/lib/caseStudies';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (() => {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }));
+}) satisfies GetStaticPaths;
+
+const { study } = Astro.props;
+---
+
+<BaseLayout title={`${study.title} | Case Study`} description={study.summary.slice(0, 155)}>
+  <PageHero title={study.title} lead={study.summary} tag={study.category} />
+
+  <Section>
+    <div class="prose-wide space-y-10">
+      <div>
+        <h2>Client</h2>
+        <p>{study.client}</p>
+      </div>
+      <div>
+        <h2>Goal</h2>
+        <p>{study.goal}</p>
+      </div>
+      <div>
+        <h2>Challenge</h2>
+        <ul>
+          {renderList(study.challenge).map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2>Solution</h2>
+        <ul>
+          {renderList(study.solution).map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2>Result</h2>
+        <ul>
+          {renderList(study.result).map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      {
+        study.quote?.text && (
+          <div>
+            <h2>In their words</h2>
+            <blockquote class="border-l-4 border-gold pl-5 italic text-ink">
+              <p>&ldquo;{study.quote.text}&rdquo;</p>
+              <p class="mt-2 text-sm not-italic text-muted">
+                {study.quote.name}, {study.quote.title}
+              </p>
+            </blockquote>
+          </div>
+        )
+      }
+      <div>
+        <h2>Key takeaway</h2>
+        <p>{study.takeaway}</p>
+      </div>
+      {
+        study.note && (
+          <p class="text-sm text-muted">Note: {study.note}</p>
+        )
+      }
+    </div>
+  </Section>
+
+  <CTABand
+    title="Ready to plan your next program?"
+    description="Let's talk about what you're building, gifting, apparel, or both."
+  />
+</BaseLayout>

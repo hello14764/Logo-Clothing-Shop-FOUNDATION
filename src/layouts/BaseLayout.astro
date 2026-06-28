@@ -1,0 +1,69 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import '@/styles/global.css';
+import { site } from '@/lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description }: Props = Astro.props;
+const fullTitle = `${title} | ${site.name}`;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: site.name,
+      url: site.url,
+      email: site.email,
+      telephone: site.phoneOffice,
+      description: site.tagline,
+    },
+    {
+      '@type': 'LocalBusiness',
+      name: site.name,
+      url: site.url,
+      email: site.email,
+      telephone: site.phoneOffice,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '280 N Old Woodward Ave, Suite 100',
+        addressLocality: 'Birmingham',
+        addressRegion: 'MI',
+        postalCode: '48009',
+        addressCountry: 'US',
+      },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

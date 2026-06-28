@@ -8,8 +8,8 @@ Foundation repo for **stitchandstoneco.com** (website) and **go-to-market sales 
 
 | Workstream | Cursor thread | You edit | Never touch |
 |------------|---------------|----------|-------------|
-| **Website** | Website build thread | `site/`, `content/copy/`, `site/css/` | `content/sales/` |
-| **Go-to-market** | GTM / sales thread | `content/sales/`, `cases.json`, `docs/90-DAY-PLAN.md` | `site/` HTML by hand |
+| **Website** | Website build thread | `src/`, `public/`, `content/copy/` | `content/sales/` |
+| **Go-to-market** | GTM / sales thread | `content/sales/`, `cases.json`, `docs/90-DAY-PLAN.md` | `src/` pages by hand |
 
 **Handoff for GTM thread:** [`docs/gtm/HANDOFF.md`](docs/gtm/HANDOFF.md)
 
@@ -19,41 +19,29 @@ Foundation repo for **stitchandstoneco.com** (website) and **go-to-market sales 
 
 ```
 /
-├── site/                      ← LIVE WEBSITE ONLY (deploy this folder)
-│   ├── index.html
-│   ├── css/  js/
-│   ├── images/                ← photos for web (hero, case-studies, general)
-│   ├── contact/
-│   ├── corporate-gifting/
-│   ├── how-it-works/
-│   └── case-studies/          ← GENERATED — do not edit by hand
-│
+├── src/                       ← ASTRO WEBSITE SOURCE
+│   ├── pages/                 ← routes (index, corporate-gifting, case-studies, …)
+│   ├── layouts/               ← BaseLayout
+│   ├── components/            ← Header, Footer, Card, Button, …
+│   ├── lib/                   ← site.ts, caseStudies.ts
+│   └── styles/global.css
+├── public/                    ← static assets (logo SVG, future images)
+├── dist/                      ← BUILD OUTPUT (Netlify publishes this)
 ├── content/
 │   ├── copy/                  ← website page outlines (00–05)
 │   ├── case-studies/
 │   │   ├── cases.json         ← SOURCE OF TRUTH for case studies
-│   │   ├── UPDATE-NOTES.md    ← raw owner notes
-│   │   └── AUDIT.md           ← accuracy audit
-│   └── sales/                 ← INTERNAL GTM — not deployed to website
-│       ├── one-pager.html     ← print to PDF for email
-│       ├── email-*.md
-│       └── EMAIL-STRATEGY.md
-│
-├── brand/
-│   └── logo-current/          ← master logo files
-│
+│   │   ├── UPDATE-NOTES.md
+│   │   └── AUDIT.md
+│   └── sales/                 ← INTERNAL GTM — not deployed
+├── brand/                     ← colors.md, logo assets
 ├── docs/
-│   ├── SITE-ARCHITECTURE.md   ← website sitemap, nav, SEO
-│   ├── DEPLOYMENT.md          ← what goes live vs stays private
-│   └── gtm/
-│       ├── HANDOFF.md         ← sync doc for GTM thread
-│       └── 90-DAY-PLAN.md     ← go-to-market plan
-│
 ├── scripts/
-│   ├── serve.ps1              ← preview website locally
-│   └── generate-case-studies.py
-│
-└── .cursor/                   ← informal working notes (not deployed)
+│   └── serve.ps1              ← npm run dev
+├── site/                      ← DEPRECATED static prototype (do not edit)
+├── astro.config.mjs
+├── tailwind.config.mjs
+└── package.json
 ```
 
 ---
@@ -62,12 +50,12 @@ Foundation repo for **stitchandstoneco.com** (website) and **go-to-market sales 
 
 | Changing… | Edit this | Then run… |
 |-----------|-----------|-----------|
-| Case study content | `content/case-studies/cases.json` | `python scripts/generate-case-studies.py` |
+| Case study content | `content/case-studies/cases.json` | `npm run build` |
 | Sales emails / PDF | `content/sales/` | Re-print PDF from `one-pager.html` |
-| Website page copy | `content/copy/*.md` | Update matching `site/*.html` |
-| Website design | `site/css/styles.css` | `.\scripts\serve.ps1` |
-| Site structure / nav | `docs/SITE-ARCHITECTURE.md` | Build pages in `site/` |
-| Logo | `brand/logo-current/` | Copy to `content/sales/` if one-pager needs it |
+| Website page copy | `src/pages/` or `content/copy/*.md` | `npm run dev` |
+| Website design | `tailwind.config.mjs`, `src/styles/global.css` | `npm run dev` |
+| Site structure / nav | `docs/SITE-ARCHITECTURE.md`, `src/lib/site.ts` | Add pages in `src/pages/` |
+| Logo | `brand/logo-current/` → `public/images/` | Replace SVG when PNG ready |
 
 ---
 
@@ -77,7 +65,9 @@ Foundation repo for **stitchandstoneco.com** (website) and **go-to-market sales 
 .\scripts\serve.ps1
 ```
 
-Open **http://localhost:8080** · Press `Ctrl+C` to stop.
+Open **http://localhost:4321** · Press `Ctrl+C` to stop.
+
+First time: run `npm install` from the repo root.
 
 ---
 
@@ -85,10 +75,10 @@ Open **http://localhost:8080** · Press `Ctrl+C` to stop.
 
 | Done | Next (Phase 2) |
 |------|----------------|
-| Home, Corporate Gifting, How It Works, Contact | Services hub + 4 service pages |
-| All 20 case study pages (generated) | Industries hub + 2–4 industry pages |
-| Shared CSS + mobile nav | About page |
-| | Photos in `site/images/` |
+| Astro + Tailwind scaffold with brand palette | Services hub + 4 service pages |
+| Home, Corporate Gifting, How It Works, Contact | Industries hub + 2–4 industry pages |
+| All 20 case study pages (from JSON) | About page |
+| Shared layout, components, JSON-LD schema | Photography via Astro Image |
 
 Full plan: [`docs/SITE-ARCHITECTURE.md`](docs/SITE-ARCHITECTURE.md)
 
@@ -97,7 +87,7 @@ Full plan: [`docs/SITE-ARCHITECTURE.md`](docs/SITE-ARCHITECTURE.md)
 ## GitHub backup vs live website
 
 **The whole repo can push to GitHub for backup.**  
-**Only `site/` goes live** when you connect Netlify or Cloudflare Pages.
+**Only `dist/` (from `npm run build`) goes live** when you connect Netlify or Cloudflare Pages.
 
 Sales emails, one-pager, and internal notes in `content/sales/` stay in the repo but **never appear on stitchandstoneco.com** if you follow [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
 
@@ -119,6 +109,7 @@ Recommendation: use a **private** GitHub repo if sales copy should not be public
 
 | Task | Command |
 |------|---------|
-| Preview site | `.\scripts\serve.ps1` |
-| Regenerate case study pages | `python scripts/generate-case-studies.py` |
+| Install dependencies | `npm install` |
+| Preview site | `npm run dev` or `.\scripts\serve.ps1` |
+| Production build | `npm run build` |
 | Git backup | `git add .` then `git commit -m "message"` |

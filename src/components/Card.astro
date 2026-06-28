@@ -1,0 +1,19 @@
+---
+interface Props {
+  tag?: string;
+  title: string;
+  class?: string;
+}
+
+const { tag, title, class: className = '' }: Props = Astro.props;
+---
+
+<article class:list={['rounded-lg border border-stone/60 bg-white p-6 shadow-sm', className]}>
+  {tag && (
+    <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-gold">{tag}</p>
+  )}
+  <h3 class="mb-3 text-xl text-navy">{title}</h3>
+  <div class="text-muted [&_p]:text-muted">
+    <slot />
+  </div>
+</article>

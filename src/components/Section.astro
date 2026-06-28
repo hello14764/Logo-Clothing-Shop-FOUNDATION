@@ -1,0 +1,21 @@
+---
+interface Props {
+  tone?: 'default' | 'alt' | 'dark';
+  class?: string;
+  id?: string;
+}
+
+const { tone = 'default', class: className = '', id }: Props = Astro.props;
+
+const tones = {
+  default: 'bg-warm-gray',
+  alt: 'bg-white',
+  dark: 'bg-navy text-white',
+};
+---
+
+<section id={id} class:list={['py-16 sm:py-20', tones[tone], className]}>
+  <div class="container-content">
+    <slot />
+  </div>
+</section>

@@ -1,9 +1,8 @@
-# Netlify — publish website only (not sales content)
-# See docs/DEPLOYMENT.md
+# Netlify — Astro website (Logo Clothing Shop)
 
 [build]
-  publish = "site"
-  command = "echo Static site — no build step"
+  command = "npm run build"
+  publish = "dist"
 
-# Optional: regenerate case studies before deploy (uncomment when ready)
-# command = "python scripts/generate-case-studies.py"
+[build.environment]
+  NODE_VERSION = "20"

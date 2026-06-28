@@ -1,0 +1,13 @@
+---
+description: Sales/GTM assets — not part of the live website
+globs: content/sales/**,docs/gtm/**
+alwaysApply: false
+---
+
+# Sales / GTM (not website)
+
+- Files in `content/sales/` do **not** deploy to stitchandstoneco.com
+- Sandler tone, human voice, no em dashes in customer emails
+- Send FROM Logo Clothing Shop email until launch
+- Sync doc: `docs/gtm/HANDOFF.md`
+- Do not copy sales email copy verbatim into website HTML without adapting tone

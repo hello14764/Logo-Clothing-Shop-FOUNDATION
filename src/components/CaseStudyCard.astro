@@ -1,0 +1,25 @@
+---
+import type { CaseStudy } from '@/types/caseStudy';
+
+interface Props {
+  study: CaseStudy;
+}
+
+const { study }: Props = Astro.props;
+---
+
+<article class="rounded-lg border border-stone/60 bg-white p-6 shadow-sm">
+  <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-gold">{study.category}</p>
+  <h3 class="mb-3 text-xl">
+    <a href={`/case-studies/${study.slug}/`} class="text-navy no-underline hover:text-navy-light">
+      {study.title}
+    </a>
+  </h3>
+  <p class="mb-4 text-muted">{study.summary}</p>
+  <a
+    href={`/case-studies/${study.slug}/`}
+    class="text-sm font-semibold text-navy no-underline hover:text-navy-light"
+  >
+    Read case study
+  </a>
+</article>

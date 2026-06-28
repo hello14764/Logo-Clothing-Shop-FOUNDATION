@@ -1,0 +1,26 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  href?: string;
+  buttonLabel?: string;
+}
+
+const {
+  title,
+  description,
+  href = '/contact/',
+  buttonLabel = 'Plan a Gifting Program',
+}: Props = Astro.props;
+---
+
+<section class="bg-navy py-16 text-white sm:py-20">
+  <div class="container-content max-w-2xl text-center">
+    <h2 class="mb-4 text-3xl text-white sm:text-4xl">{title}</h2>
+    <p class="mb-8 text-white/70">{description}</p>
+    <Button href={href} variant="inverse">{buttonLabel}</Button>
+    <slot />
+  </div>
+</section>

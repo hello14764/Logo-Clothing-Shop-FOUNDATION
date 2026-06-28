@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-warm-gray font-body text-[1.0625rem] leading-relaxed text-ink;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-semibold tracking-tight text-navy;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6;
+  }
+
+  .prose-wide {
+    @apply mx-auto max-w-3xl;
+  }
+
+  .prose-wide h2 {
+    @apply mb-4 mt-10 text-2xl first:mt-0;
+  }
+
+  .prose-wide h3 {
+    @apply mb-2 mt-8 text-xl;
+  }
+
+  .prose-wide ul {
+    @apply my-4 list-disc space-y-2 pl-5;
+  }
+
+  .prose-wide p {
+    @apply text-muted;
+  }
+}

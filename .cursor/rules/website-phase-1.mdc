@@ -1,0 +1,58 @@
+---
+description: Website build rules — Astro + Tailwind, Logo Clothing Shop
+globs: src/**,public/**,content/copy/**,docs/SITE-ARCHITECTURE.md,tailwind.config.mjs,astro.config.mjs
+alwaysApply: false
+---
+
+# Website (Astro)
+
+## Stack
+
+- **Astro** + **Tailwind CSS** — `src/`, build to `dist/`
+- Minimal JS (mobile nav inline script in Header only)
+- Use `<Image />` from `astro:assets` when adding photos (not needed for SVG logo in public/)
+- Legacy static site in `site/` is deprecated — do not edit
+
+## Brand (until launch)
+
+- **Primary display name:** Logo Clothing Shop (header logo)
+- **Bridge line:** "Becoming Stitch & Stone Co." (header) / footer intro line
+- **Do not** lead with Stitch & Stone Co. in `<title>` until owner says go live
+
+## Colors (tailwind.config.mjs)
+
+- Navy `#0A2540` — primary CTA, links, footer
+- Warm gray `#F5F2ED` — page background
+- Stone `#D2C8B6` — cards, borders
+- Gold `#C9A66B` — accents, thread dividers (not primary buttons)
+
+## Positioning
+
+- Gifting-first homepage and CTAs
+- Primary CTA: **Plan a Gifting Program** → `/contact/`
+
+## Copy rules
+
+- Human, warm, professional
+- **No em dashes** in customer-facing copy
+- Michigan / Detroit / Birmingham when relevant
+
+## Contact (canonical)
+
+- Joe Toma, Business Development Director
+- hello@logoclothingshop.com
+- Office: (248) 382-8182 · Cell: (248) 470-9926
+- 280 N Old Woodward Ave, Suite 100, Birmingham, MI 48009
+- Book: https://meetings.hubspot.com/joe-toma/introductory-call
+
+## Commands
+
+```powershell
+npm run dev      # http://localhost:4321
+npm run build    # → dist/
+```
+
+## Do not
+
+- Edit legacy `site/` HTML for website work
+- Put sales assets in `src/` or `public/`

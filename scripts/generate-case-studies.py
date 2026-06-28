@@ -9,33 +9,25 @@ ROOT = Path(__file__).resolve().parent.parent
 CASES_FILE = ROOT / "content" / "case-studies" / "cases.json"
 OUT_DIR = ROOT / "site" / "case-studies"
 
-HEADER = """<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} | Case Study | Stitch &amp; Stone Co.</title>
-  <meta name="description" content="{meta}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{css}">
-</head>
-<body>
-  <header class="site-header">
+
+def site_header(root, css, js):
+    img = f"{root}images/general/logo-clothing-shop.svg"
+    return f"""  <header class="site-header">
     <div class="container header-inner">
-      <a href="{root}" class="logo">Stitch &amp; Stone Co.</a>
+      <div class="logo-wrap">
+        <a href="{root}" class="logo-lockup">
+          <img src="{img}" alt="Logo Clothing Shop" class="logo-img" width="200" height="60">
+        </a>
+        <span class="logo-bridge">Becoming Stitch &amp; Stone Co.</span>
+      </div>
       <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
       <nav id="main-nav" class="main-nav" aria-label="Main">
         <ul>
           <li><a href="{root}corporate-gifting/">Corporate Gifting</a></li>
-          <li><a href="{root}services/">Services</a></li>
-          <li><a href="{root}industries/">Industries</a></li>
+          <li><a href="{root}how-it-works/">How It Works</a></li>
           <li><a href="{root}case-studies/">Case Studies</a></li>
-          <li><a href="{root}about/">About</a></li>
-          <li><a href="{root}insights/">Insights</a></li>
         </ul>
         <div class="nav-cta">
           <a href="{root}contact/" class="btn btn-primary">Plan a Gifting Program</a>
@@ -43,7 +35,63 @@ HEADER = """<!DOCTYPE html>
       </nav>
       <a href="{root}contact/" class="btn btn-primary header-cta-desktop">Plan a Gifting Program</a>
     </div>
-  </header>
+  </header>"""
+
+
+def site_footer(root):
+    img = f"{root}images/general/logo-clothing-shop.svg"
+    return f"""  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="{root}" class="logo-lockup">
+            <img src="{img}" alt="Logo Clothing Shop" class="logo-img" width="200" height="60">
+          </a>
+          <p>Corporate gifting and in-house decoration. Birmingham, Michigan.</p>
+          <p>
+            <a href="mailto:hello@logoclothingshop.com">hello@logoclothingshop.com</a><br>
+            <a href="tel:+12483828182">(248) 382-8182</a> office<br>
+            <a href="tel:+12484709926">(248) 470-9926</a> cell
+          </p>
+          <p class="footer-bridge">Introducing Stitch &amp; Stone Co., our next chapter. Same team, same craft.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="{root}corporate-gifting/">Corporate Gifting</a></li>
+            <li><a href="{root}how-it-works/">How It Works</a></li>
+            <li><a href="{root}case-studies/">Case Studies</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-nav">
+          <h4>Get started</h4>
+          <ul>
+            <li><a href="{root}contact/">Plan a Gifting Program</a></li>
+            <li><a href="https://meetings.hubspot.com/joe-toma/introductory-call">Book a call</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Logo Clothing Shop. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>"""
+
+
+CASE_PAGE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} | Case Study | Logo Clothing Shop</title>
+  <meta name="description" content="{meta}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{css}">
+</head>
+<body>
+{header}
   <main>
     <section class="page-hero">
       <div class="container">
@@ -60,37 +108,12 @@ HEADER = """<!DOCTYPE html>
     <section class="section section-dark cta-band">
       <div class="container">
         <h2>Ready to plan your next program?</h2>
-        <p>Let's talk about what you're building — gifting, apparel, or both.</p>
+        <p>Let's talk about what you're building, gifting, apparel, or both.</p>
         <a href="{root}contact/" class="btn btn-inverse">Plan a Gifting Program</a>
       </div>
     </section>
   </main>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="{root}" class="logo">Stitch &amp; Stone Co.</a>
-          <p>Corporate gifting and in-house decoration — Michigan.</p>
-          <p>
-            <a href="mailto:hello@stitchandstoneco.com">hello@stitchandstoneco.com</a><br>
-            <a href="tel:+12483828182">(248) 382-8182</a>
-          </p>
-          <p class="footer-bridge">Known to many clients as Logo Clothing Shop.</p>
-        </div>
-        <nav class="footer-nav" aria-label="Footer">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="{root}corporate-gifting/">Corporate Gifting</a></li>
-            <li><a href="{root}case-studies/">Case Studies</a></li>
-            <li><a href="{root}contact/">Plan a Gifting Program</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Stitch &amp; Stone Co. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+{footer}
   <script src="{js}"></script>
 </body>
 </html>"""
@@ -115,7 +138,7 @@ def build_body(case):
     ]
     q = case.get("quote")
     if q and q.get("text"):
-        quote_html = f'        <blockquote><p>&ldquo;{q["text"]}&rdquo;</p><p class="text-muted">&mdash; {q["name"]}, {q["title"]}</p></blockquote>'
+        quote_html = f'        <blockquote><p>&ldquo;{q["text"]}&rdquo;</p><p class="text-muted">{q["name"]}, {q["title"]}</p></blockquote>'
         parts.append(f'        <div class="case-section">\n          <h2>In their words</h2>\n{quote_html}\n        </div>')
     parts.append(section("Key takeaway", case["takeaway"]))
     if case.get("note"):
@@ -132,12 +155,14 @@ def main():
         js = "../../js/nav.js"
         root = "../../"
         body = build_body(case)
-        html = HEADER.format(
+        html = CASE_PAGE.format(
             title=case["title"],
             meta=case["summary"][:155],
             css=css,
             js=js,
             root=root,
+            header=site_header(root, css, js),
+            footer=site_footer(root),
             category=case["category"],
             summary=case["summary"],
             body=body,
@@ -184,48 +209,27 @@ def main():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Studies | Stitch &amp; Stone Co.</title>
-  <meta name="description" content="Case studies in corporate gifting, embroidery, and branded apparel — Michigan companies trust Stitch &amp; Stone Co.">
+  <title>Case Studies | Logo Clothing Shop</title>
+  <meta name="description" content="Case studies in corporate gifting, embroidery, and branded apparel. Michigan companies trust Logo Clothing Shop.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="../" class="logo">Stitch &amp; Stone Co.</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="main-nav" class="main-nav" aria-label="Main">
-        <ul>
-          <li><a href="../corporate-gifting/">Corporate Gifting</a></li>
-          <li><a href="../services/">Services</a></li>
-          <li><a href="../industries/">Industries</a></li>
-          <li><a href="../case-studies/">Case Studies</a></li>
-          <li><a href="../about/">About</a></li>
-          <li><a href="../insights/">Insights</a></li>
-        </ul>
-        <div class="nav-cta">
-          <a href="../contact/" class="btn btn-primary">Plan a Gifting Program</a>
-        </div>
-      </nav>
-      <a href="../contact/" class="btn btn-primary header-cta-desktop">Plan a Gifting Program</a>
-    </div>
-  </header>
+{site_header("../", "../css/styles.css", "../js/nav.js")}
   <main>
     <section class="page-hero">
       <div class="container">
         <h1>Case studies</h1>
-        <p class="lead">Curated gifting, precision embroidery, and branded programs — real work for Michigan organizations.</p>
+        <p class="lead">Curated gifting, precision embroidery, and branded programs. Real work for Michigan organizations.</p>
       </div>
     </section>
     <section class="section">
       <div class="container">
         <div class="section-header">
           <h2>Featured</h2>
-          <p class="text-muted">Gifting, law, nonprofit, and trades — a sample of how we partner with clients.</p>
+          <p class="text-muted">Gifting, law, nonprofit, and trades. A sample of how we partner with clients.</p>
         </div>
         <div class="case-grid-featured">
 {cards_featured}
@@ -245,32 +249,7 @@ def main():
       </div>
     </section>
   </main>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="../" class="logo">Stitch &amp; Stone Co.</a>
-          <p>Corporate gifting and in-house decoration — Michigan.</p>
-          <p>
-            <a href="mailto:hello@stitchandstoneco.com">hello@stitchandstoneco.com</a><br>
-            <a href="tel:+12483828182">(248) 382-8182</a>
-          </p>
-          <p class="footer-bridge">Known to many clients as Logo Clothing Shop.</p>
-        </div>
-        <nav class="footer-nav" aria-label="Footer">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="../corporate-gifting/">Corporate Gifting</a></li>
-            <li><a href="../case-studies/">Case Studies</a></li>
-            <li><a href="../contact/">Plan a Gifting Program</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Stitch &amp; Stone Co. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+{site_footer("../")}
   <script src="../js/nav.js"></script>
 </body>
 </html>"""

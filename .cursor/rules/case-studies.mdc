@@ -1,0 +1,15 @@
+---
+description: Case study JSON and Astro build workflow
+globs: content/case-studies/**,src/pages/case-studies/**,src/lib/caseStudies.ts
+alwaysApply: false
+---
+
+# Case studies
+
+- **Source of truth:** `content/case-studies/cases.json`
+- **Site pages:** generated at build time via `src/pages/case-studies/[slug].astro`
+- After JSON changes: `npm run build` (or `npm run dev` to preview)
+- **Do not hand-edit** legacy `site/case-studies/*.html` (deprecated)
+- Legacy generator `scripts/generate-case-studies.py` is deprecated
+- Owner notes: `UPDATE-NOTES.md` · Accuracy audit: `AUDIT.md`
+- Do not publish: Karmanos Tommy Hearns framing; Thornton 10K program as completed; Ven Johnson vendor win-back angle

@@ -1,0 +1,63 @@
+---
+import { navLinks, site } from '@/lib/site';
+---
+
+<footer class="bg-navy py-12 text-white/75">
+  <div class="container-content">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div>
+        <a href="/" class="inline-block leading-none no-underline">
+          <img
+            src="/images/general/logo-clothing-shop.svg"
+            alt={site.name}
+            class="h-10 w-auto brightness-0 invert opacity-95"
+            width="200"
+            height="60"
+          />
+        </a>
+        <p class="mt-4 max-w-sm">{site.tagline}</p>
+        <p class="mt-4">
+          <a href={`mailto:${site.email}`} class="text-white/75 no-underline hover:text-white">
+            {site.email}
+          </a><br />
+          <a href={site.phoneOfficeHref} class="text-white/75 no-underline hover:text-white">
+            {site.phoneOffice}
+          </a> office<br />
+          <a href={site.phoneCellHref} class="text-white/75 no-underline hover:text-white">
+            {site.phoneCell}
+          </a> cell
+        </p>
+        <p class="mt-4 text-sm italic text-white/45">{site.footerBridge}</p>
+      </div>
+
+      <nav aria-label="Footer">
+        <h4 class="mb-3 text-xs font-semibold uppercase tracking-widest text-white/45">Explore</h4>
+        <ul class="space-y-2">
+          {
+            navLinks.map(({ href, label }) => (
+              <li>
+                <a href={href} class="text-white/75 no-underline hover:text-white">{label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav>
+        <h4 class="mb-3 text-xs font-semibold uppercase tracking-widest text-white/45">Get started</h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="/contact/" class="text-white/75 no-underline hover:text-white">Plan a Gifting Program</a>
+          </li>
+          <li>
+            <a href={site.bookingUrl} class="text-white/75 no-underline hover:text-white">Book a call</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="mt-10 border-t border-white/10 pt-6 text-sm">
+      <p>&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
