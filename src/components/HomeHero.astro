@@ -1,0 +1,93 @@
+---
+import Button from './Button.astro';
+import { site } from '@/lib/site';
+---
+
+<section class="relative overflow-hidden bg-white pb-8 pt-6 sm:pb-12 sm:pt-10">
+  <div class="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true"></div>
+  <div
+    class="pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-gold/5 blur-3xl"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-content relative">
+    <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div class="animate-fade-up max-w-xl lg:max-w-none">
+        <p class="mb-5 eyebrow-line">Michigan · Corporate Gifting</p>
+        <h1 class="mb-6 text-4xl leading-[1.08] sm:text-5xl lg:text-[3.5rem]">
+          Corporate gifting that feels intentional
+        </h1>
+        <p class="mb-4 text-lg leading-relaxed text-muted sm:text-xl">
+          Curated programs for teams and clients. Designed, embroidered, and delivered in-house from the Detroit area.
+        </p>
+        <p class="mb-8 text-sm font-medium tracking-wide text-muted/90">
+          In-house embroidery · screen printing · web stores · promo
+        </p>
+
+        <div class="mb-6 flex flex-wrap gap-3">
+          <Button href="/contact/">Plan a Gifting Program</Button>
+          <Button href="/how-it-works/" variant="secondary">See How It Works</Button>
+        </div>
+
+        <p class="mb-8 text-sm text-muted">
+          Most marketing teams start with a 20-minute curation call.
+          <a
+            href={site.bookingUrl}
+            class="ml-1 font-semibold text-navy no-underline hover:text-gold-dark"
+          >
+            Book yours
+          </a>
+        </p>
+
+        <div class="flex flex-wrap gap-2.5">
+          <span class="trust-pill">
+            <span class="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true"></span>
+            Birmingham, Michigan
+          </span>
+          <span class="trust-pill">Consultative, not catalog</span>
+          <span class="trust-pill">Ship-to-home programs</span>
+        </div>
+      </div>
+
+      <div class="animate-fade-up lg:pl-4" style="animation-delay: 0.1s">
+        <div class="hero-visual-frame min-h-[320px] sm:min-h-[380px]">
+          <div class="relative flex h-full flex-col items-center justify-center text-center">
+            <div
+              class="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-gold/30 bg-white/80 shadow-soft"
+              aria-hidden="true"
+            >
+              <svg class="h-9 w-9 text-gold" viewBox="0 0 36 36" fill="none">
+                <path
+                  d="M8 18h20M18 8v20"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"></path>
+                <rect
+                  x="6"
+                  y="10"
+                  width="24"
+                  height="16"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.5"></rect>
+              </svg>
+            </div>
+            <p class="mb-2 font-display text-2xl text-navy">Curated gift experiences</p>
+            <p class="max-w-xs text-sm leading-relaxed text-muted">
+              Package photography coming soon. Your programs deserve visuals as thoughtful as the gifts inside.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-2">
+              {
+                ['Embroidered', 'Client-ready', 'Michigan-made'].map((label) => (
+                  <span class="rounded-md bg-white/70 px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-wider text-navy/70">
+                    {label}
+                  </span>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

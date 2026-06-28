@@ -1,7 +1,7 @@
 # Sales collateral (internal — not on live website)
 
-**These files backup to GitHub but do NOT deploy to stitchandstoneco.com.**  
-Publish directory is `site/` only. See [`docs/DEPLOYMENT.md`](../../docs/DEPLOYMENT.md).
+**These files backup to GitHub but do NOT deploy to logoclothingshop.com.**  
+Publish directory is **`dist/`** (Astro build). See [`docs/DEPLOYMENT.md`](../../docs/DEPLOYMENT.md).
 
 **GTM thread:** read [`docs/gtm/HANDOFF.md`](../../docs/gtm/HANDOFF.md) before editing.
 
@@ -13,7 +13,7 @@ Publish directory is `site/` only. See [`docs/DEPLOYMENT.md`](../../docs/DEPLOYM
 2. `Ctrl+P` → Save as PDF → Letter, 100%
 3. Save locally as `Logo-Clothing-Shop-Corporate-Gifting-Overview.pdf`
 
-**Before printing:** Replace `[your Logo Clothing Shop email]` in the HTML.
+**Email in HTML:** hello@logoclothingshop.com (confirmed).
 
 **Do not commit PDF files** — `.gitignore` excludes `*.pdf`. Regenerate when needed.
 
@@ -30,6 +30,7 @@ Not stitchandstoneco.com until launch. See `EMAIL-STRATEGY.md`.
 | | |
 |--|--|
 | **Joe Toma** | Business Development Director |
+| **Email** | hello@logoclothingshop.com |
 | **Office** | (248) 382-8182 |
 | **Cell** | (248) 470-9926 |
 | **Address** | 280 N Old Woodward Ave, Suite 100, Birmingham, MI 48009 |

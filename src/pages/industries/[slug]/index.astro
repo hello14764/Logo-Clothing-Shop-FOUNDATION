@@ -1,0 +1,98 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import CTABand from '@/components/CTABand.astro';
+import Card from '@/components/Card.astro';
+import CaseStudyCard from '@/components/CaseStudyCard.astro';
+import ImagePlaceholder from '@/components/ImagePlaceholder.astro';
+import PageHero from '@/components/PageHero.astro';
+import Section from '@/components/Section.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import { caseStudies } from '@/lib/caseStudies';
+import { industriesList } from '@/lib/site';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (() => {
+  const industryPages = {
+    construction: {
+      title: 'Corporate gifting for construction',
+      lead: 'Crew appreciation, safety milestones, and field-ready gifts that respect the work — durable, practical, premium.',
+      know: 'Construction marketing teams need gifts that survive the jobsite and still feel intentional. We curate for durability, brand visibility without cheap promo, and timelines that match project schedules.',
+      occasions: [
+        'Safety milestones and zero-incident recognition',
+        'Crew appreciation and superintendent thank-yous',
+        'Project close-out and client gifting',
+        'Holiday programs for field and office teams',
+      ],
+      good: 'Durable goods, practical premium items, decoration that holds up — never flimsy throwaways.',
+    },
+    'legal-financial': {
+      title: 'Corporate gifting for legal & financial',
+      lead: "Understated client thank-yous, referral appreciation, and onboarding gifts that reflect your firm's standards.",
+      know: 'Law and financial services teams need discretion, quality, and brand alignment. We curate gifts that feel personal without loud logos or catalog cheapness.',
+      occasions: [
+        'Client retention and referral thank-yous',
+        'Event apparel and conference programs',
+        'Onboarding and milestone appreciation',
+        'Holiday ship-to-home for partners and staff',
+      ],
+      good: 'Premium presentation, understated branding, reliable delivery when events have hard deadlines.',
+    },
+  } as const;
+
+  return industriesList.map(({ slug, caseStudySlug }) => ({
+    params: { slug },
+    props: { page: industryPages[slug], caseStudySlug },
+  }));
+}) satisfies GetStaticPaths;
+
+const { page, caseStudySlug } = Astro.props;
+const featuredStudy = caseStudies.find((s) => s.slug === caseStudySlug);
+---
+
+<BaseLayout title={page.title} description={`${page.lead} Logo Clothing Shop — Michigan.`}>
+  <PageHero tag="Industries" title={page.title} lead={page.lead} visual>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="/contact/">Plan a Gifting Program</Button>
+      <Button href="/industries/" variant="secondary">All industries</Button>
+    </div>
+  </PageHero>
+
+  <Section>
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div>
+        <SectionHeader eyebrow="We get it" title="You know this world" accent />
+        <p class="text-lg leading-relaxed text-muted">{page.know}</p>
+      </div>
+      <ImagePlaceholder variant="square" label="Industry photo coming soon" />
+    </div>
+  </Section>
+
+  <Section tone="alt">
+    <div class="grid gap-10 lg:grid-cols-2">
+      <div class="prose-section">
+        <SectionHeader eyebrow="Occasions" title="Programs we build" />
+        <ul>
+          {page.occasions.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <Card title="What good looks like here">
+        <p>{page.good}</p>
+      </Card>
+    </div>
+  </Section>
+
+  {
+    featuredStudy && (
+      <Section>
+        <SectionHeader eyebrow="Proof" title="Featured case study" />
+        <CaseStudyCard study={featuredStudy} featured />
+      </Section>
+    )
+  }
+
+  <CTABand
+    title="Let's plan a program for your team"
+    description="Tell us about your organization, recipients, and timeline. We'll see if we're a fit."
+  />
+</BaseLayout>

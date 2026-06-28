@@ -1,11 +1,12 @@
 ---
-import { navLinks, site } from '@/lib/site';
+import Button from './Button.astro';
+import { footerExplore, navResources, site } from '@/lib/site';
 ---
 
-<footer class="bg-navy py-12 text-white/75">
+<footer class="thread-border-top bg-navy py-14 text-white/75">
   <div class="container-content">
-    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
-      <div>
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-1">
         <a href="/" class="inline-block leading-none no-underline">
           <img
             src="/images/general/logo-clothing-shop.svg"
@@ -15,8 +16,8 @@ import { navLinks, site } from '@/lib/site';
             height="60"
           />
         </a>
-        <p class="mt-4 max-w-sm">{site.tagline}</p>
-        <p class="mt-4">
+        <p class="mt-4 max-w-sm text-sm leading-relaxed">{site.tagline}</p>
+        <p class="mt-4 text-sm">
           <a href={`mailto:${site.email}`} class="text-white/75 no-underline hover:text-white">
             {site.email}
           </a><br />
@@ -30,11 +31,24 @@ import { navLinks, site } from '@/lib/site';
         <p class="mt-4 text-sm italic text-white/45">{site.footerBridge}</p>
       </div>
 
-      <nav aria-label="Footer">
+      <nav aria-label="Footer explore">
         <h4 class="mb-3 text-xs font-semibold uppercase tracking-widest text-white/45">Explore</h4>
-        <ul class="space-y-2">
+        <ul class="space-y-2 text-sm">
           {
-            navLinks.map(({ href, label }) => (
+            footerExplore.map(({ href, label }) => (
+              <li>
+                <a href={href} class="text-white/75 no-underline hover:text-white">{label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav aria-label="Footer resources">
+        <h4 class="mb-3 text-xs font-semibold uppercase tracking-widest text-white/45">Resources</h4>
+        <ul class="space-y-2 text-sm">
+          {
+            navResources.children.map(({ href, label }) => (
               <li>
                 <a href={href} class="text-white/75 no-underline hover:text-white">{label}</a>
               </li>
@@ -45,18 +59,26 @@ import { navLinks, site } from '@/lib/site';
 
       <nav>
         <h4 class="mb-3 text-xs font-semibold uppercase tracking-widest text-white/45">Get started</h4>
-        <ul class="space-y-2">
+        <ul class="space-y-2 text-sm">
           <li>
             <a href="/contact/" class="text-white/75 no-underline hover:text-white">Plan a Gifting Program</a>
           </li>
           <li>
             <a href={site.bookingUrl} class="text-white/75 no-underline hover:text-white">Book a call</a>
           </li>
+          <li>
+            <a href={site.googleReviewsUrl} class="text-white/75 no-underline hover:text-white" target="_blank" rel="noopener noreferrer">
+              Google reviews
+            </a>
+          </li>
         </ul>
+        <div class="mt-6">
+          <Button href="/contact/" variant="inverse" class="!text-sm">Contact us</Button>
+        </div>
       </nav>
     </div>
 
-    <div class="mt-10 border-t border-white/10 pt-6 text-sm">
+    <div class="mt-10 border-t border-white/10 pt-6 text-sm text-white/50">
       <p>&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</p>
     </div>
   </div>

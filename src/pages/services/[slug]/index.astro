@@ -1,0 +1,128 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import CTABand from '@/components/CTABand.astro';
+import GiftingBanner from '@/components/GiftingBanner.astro';
+import ImagePlaceholder from '@/components/ImagePlaceholder.astro';
+import PageHero from '@/components/PageHero.astro';
+import Section from '@/components/Section.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import { servicesList } from '@/lib/site';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (() => {
+  const servicePages = {
+    embroidery: {
+      title: 'Embroidery in Michigan',
+      lead: 'Precision thread work for polos, jackets, hats, and corporate apparel — done in-house, not outsourced.',
+      offers: [
+        'Corporate polos, quarter-zips, and outerwear',
+        'Hats, beanies, and structured headwear',
+        'Fine-detail logos including complex marks',
+        'Samples and production runs from our Birmingham shop',
+      ],
+      bestFor: [
+        'Employee apparel and uniform programs',
+        'Premium client gifting with embroidered items',
+        'Law, finance, and professional services brand standards',
+      ],
+    },
+    'screen-printing': {
+      title: 'Screen Printing in Michigan',
+      lead: 'Bold, durable prints for tees, hoodies, and event apparel — produced in-house for consistent quality.',
+      offers: [
+        'Event tees, hoodies, and staff apparel',
+        'Multi-color and specialty prints',
+        'Volume runs with brand consistency',
+        'Fast turnaround when timelines are tight',
+      ],
+      bestFor: [
+        'Event and conference apparel',
+        'Construction and trades team shirts',
+        'Law firm and corporate event programs',
+      ],
+    },
+    'web-store-programs': {
+      title: 'Employee Web Store Programs',
+      lead: 'Branded online stores for on-demand uniform and apparel ordering — one program, managed and fulfilled by your partner, not a DIY platform.',
+      offers: [
+        'Custom branded employee web stores with approved products only',
+        'On-demand ordering for uniforms, outerwear, and team apparel',
+        'Size runs, profiles, and repeat ordering simplified for HR and ops',
+        'Decoration and fulfillment from our Michigan shop — one point of contact',
+      ],
+      bestFor: [
+        'HVAC, trades, and field teams with recurring uniform needs',
+        'Companies replacing ad-hoc email orders with a real store',
+        'HR teams who want employees to order without chasing spreadsheets',
+      ],
+    },
+    'promotional-products': {
+      title: 'Promotional Products Partner',
+      lead: 'Your partner in promo — sourcing, decoration, and project management for teams who need more than a catalog checkout.',
+      offers: [
+        'Product sourcing aligned to your brand and budget',
+        'Decoration and kitting under one roof',
+        'Project management from concept to delivery',
+        'Ongoing programs, not one-off transactions',
+      ],
+      bestFor: [
+        'Marketing teams managing recurring promo needs',
+        'Trade show and conference programs',
+        'Client gifting at scale with custom presentation',
+      ],
+    },
+  } as const;
+
+  return servicesList.map(({ slug }) => ({
+    params: { slug },
+    props: { page: servicePages[slug] },
+  }));
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title={page.title} description={`${page.lead} Logo Clothing Shop — Birmingham, Michigan.`}>
+  <PageHero tag="Services" title={page.title} lead={page.lead} visual>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="/contact/">Talk about a project</Button>
+      <Button href="/services/" variant="secondary">All services</Button>
+    </div>
+  </PageHero>
+
+  <Section>
+    <GiftingBanner />
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div class="prose-section">
+        <SectionHeader eyebrow="What we offer" title="Capabilities" accent />
+        <ul>
+          {page.offers.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="prose-section">
+        <SectionHeader eyebrow="Best for" title="Common projects" />
+        <ul>
+          {page.bestFor.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <Section tone="alt">
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+      <SectionHeader
+        eyebrow="Process"
+        title="Consultative production"
+        description="We confirm scope, art, timeline, and delivery before anything hits the floor. Same communication standards as our gifting programs."
+      />
+      <ImagePlaceholder variant="square" label="Production photo coming soon" />
+    </div>
+  </Section>
+
+  <CTABand
+    title="Ready to start a project?"
+    description="Tell us what you're making, how many, and when you need it. We'll see if we're a fit."
+    buttonLabel="Talk about a project"
+  />
+</BaseLayout>

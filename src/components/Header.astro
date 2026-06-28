@@ -1,13 +1,14 @@
 ---
 import Button from './Button.astro';
-import { navLinks, site } from '@/lib/site';
+import NavDropdown from './NavDropdown.astro';
+import { navDropdowns, navPrimary, site } from '@/lib/site';
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 border-b border-stone/30 bg-warm-gray/95 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-stone/25 bg-warm-gray/90 shadow-header backdrop-blur-md">
   <div class="container-content flex h-20 items-center justify-between gap-4">
-    <div class="min-w-0">
+    <div class="min-w-0 shrink-0">
       <a href="/" class="inline-block leading-none no-underline">
         <img
           src="/images/general/logo-clothing-shop.svg"
@@ -17,14 +18,14 @@ const currentPath = Astro.url.pathname;
           height="60"
         />
       </a>
-      <span class="mt-0.5 block text-[0.625rem] font-medium uppercase tracking-wider text-muted sm:text-[0.6875rem]">
+      <span class="mt-1 block text-[0.625rem] font-medium uppercase tracking-[0.08em] text-muted sm:text-[0.6875rem]">
         {site.bridge}
       </span>
     </div>
 
     <button
       type="button"
-      class="nav-toggle flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-stone/50 bg-white lg:hidden"
+      class="nav-toggle flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-1.5 rounded-lg border border-stone/50 bg-white shadow-soft lg:hidden"
       aria-expanded="false"
       aria-controls="main-nav"
       aria-label="Toggle navigation"
@@ -36,17 +37,21 @@ const currentPath = Astro.url.pathname;
 
     <nav
       id="main-nav"
-      class="main-nav absolute left-0 right-0 top-full hidden border-b border-stone/30 bg-warm-gray px-5 py-4 lg:static lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0"
+      class="main-nav absolute left-0 right-0 top-full hidden max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-stone/30 bg-warm-gray px-5 py-4 lg:static lg:flex lg:max-h-none lg:flex-1 lg:items-center lg:justify-end lg:gap-6 lg:overflow-visible lg:border-0 lg:bg-transparent lg:p-0 xl:gap-8"
       aria-label="Main"
     >
-      <ul class="mb-4 space-y-2 lg:mb-0 lg:flex lg:items-center lg:gap-6">
+      <div class="mb-4 lg:hidden">
+        <Button href="/contact/" class="w-full justify-center">Plan a Gifting Program</Button>
+      </div>
+
+      <ul class="mb-4 space-y-1 lg:mb-0 lg:flex lg:items-center lg:gap-5 xl:gap-6">
         {
-          navLinks.map(({ href, label }) => (
+          navPrimary.map(({ href, label }) => (
             <li>
               <a
                 href={href}
                 class:list={[
-                  'block py-2 text-sm font-medium no-underline lg:py-0',
+                  'block rounded-md px-2 py-2 text-sm font-medium no-underline lg:py-0',
                   currentPath.startsWith(href)
                     ? 'text-navy'
                     : 'text-ink hover:text-navy-light',
@@ -57,13 +62,11 @@ const currentPath = Astro.url.pathname;
             </li>
           ))
         }
+        {navDropdowns.map((menu) => <NavDropdown menu={menu} currentPath={currentPath} />)}
       </ul>
-      <div class="lg:hidden">
-        <Button href="/contact/">Plan a Gifting Program</Button>
-      </div>
     </nav>
 
-    <div class="hidden lg:block">
+    <div class="hidden shrink-0 lg:block">
       <Button href="/contact/">Plan a Gifting Program</Button>
     </div>
   </div>
@@ -84,9 +87,20 @@ const currentPath = Astro.url.pathname;
 
     nav.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
+        if (window.innerWidth >= 1024) return;
         toggle.setAttribute('aria-expanded', 'false');
         nav.classList.add('hidden');
         nav.classList.remove('block');
+      });
+    });
+
+    nav.querySelectorAll('.nav-dropdown button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (window.innerWidth >= 1024) return;
+        var panel = btn.nextElementSibling;
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (panel) panel.classList.toggle('hidden');
       });
     });
   })();
@@ -96,6 +110,39 @@ const currentPath = Astro.url.pathname;
   @media (min-width: 1024px) {
     .main-nav {
       display: flex !important;
+    }
+
+    .nav-dropdown-panel {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(0.5rem);
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s;
+      pointer-events: none;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-panel,
+    .nav-dropdown:focus-within .nav-dropdown-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .nav-dropdown-panel.hidden {
+      display: none;
+    }
+
+    .nav-dropdown-panel:not(.hidden) {
+      display: block;
+    }
+
+    .nav-dropdown-panel {
+      display: none;
     }
   }
 </style>

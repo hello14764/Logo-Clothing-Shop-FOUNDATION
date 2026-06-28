@@ -2,14 +2,15 @@
 
 ## STOP — read this first
 
-### **`site/case-studies/*.html` is GENERATED. Do not edit by hand.**
+### **Live case study pages come from `cases.json` + Astro build. Do not edit HTML by hand.**
 
 1. Edit **`cases.json`** in this folder  
-2. Run: `python scripts/generate-case-studies.py`  
-3. Any hand-edits to HTML **will be overwritten** on the next run  
+2. Run: `npm run build` (or `npm run dev` to preview locally)  
+3. Push to GitHub for Netlify to rebuild  
 
 **Source of truth:** `content/case-studies/cases.json`  
-**Website output:** `site/case-studies/`  
+**Live website output:** `dist/case-studies/` (generated — do not edit)  
+**Deprecated:** `site/case-studies/*.html` and `scripts/generate-case-studies.py`  
 **GTM thread notes:** `UPDATE-NOTES.md`, `AUDIT.md`, `docs/gtm/HANDOFF.md`
 
 ---
@@ -27,7 +28,13 @@ All live case study pages are generated from:
 After editing, run:
 
 ```powershell
-python scripts/generate-case-studies.py
+npm run build
+```
+
+Or preview with:
+
+```powershell
+npm run dev
 ```
 
 ### Option C — Google Doc / Notion
@@ -40,7 +47,7 @@ Export **text only**. Keep PDFs in Drive, not Git.
 | Asset | Where | Size guidance |
 |-------|--------|----------------|
 | Story data | `cases.json` | Kilobytes |
-| Web photos | `site/images/case-studies/` | Under 200 KB each, compressed |
+| Web photos | `public/images/case-studies/` | Under 200 KB each, compressed |
 | PDF archive | Google Drive / OneDrive | **Not** in Git |
 | Sales one-pager | `content/sales/` | **Not deployed to website** |
 

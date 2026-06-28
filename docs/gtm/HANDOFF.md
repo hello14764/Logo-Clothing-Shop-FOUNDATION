@@ -1,7 +1,23 @@
 # Handoff for Go-To-Market thread
 
-**Last updated:** Jun 2026  
+**Last updated:** Jun 27, 2026  
 **Purpose:** Sync the GTM/sales Cursor thread with work done in the website thread. Read this before editing sales or case study content.
+
+**Session brief:** [`docs/PROJECT-BRIEF.md`](../PROJECT-BRIEF.md) — **read first and update last every session**
+
+---
+
+## Current status (Jun 2026)
+
+| Area | Status |
+|------|--------|
+| **Brand live** | Logo Clothing Shop · soon Stitch & Stone Co. (bridge only) |
+| **Contact everywhere** | hello@logoclothingshop.com (monitored daily) |
+| **Website** | Astro Phase 1 built; Netlify deploy live (generic URL); custom domain **logoclothingshop.com** next (~2-week launch target) |
+| **stitchandstoneco.com** | Not live yet |
+| **90-day plan** | Starts **Monday, June 29, 2026** (Week 1) |
+| **Top 30 list** | Starts **Monday, June 29, 2026** (Week 1, Day 1) |
+| **Workstreams** | Website + GTM **in parallel** (not paused) |
 
 ---
 
@@ -18,11 +34,12 @@
 
 | Folder | Why |
 |--------|-----|
-| `site/*.html` | Built/maintained in website thread |
-| `site/css/` | Design tokens, layout |
+| `src/**` | Astro website source — website thread |
+| `public/**` | Static assets for live site |
 | `content/copy/` | Website page outlines |
+| `site/**` | **Deprecated** static prototype — do not edit |
 
-**Exception:** After you edit `cases.json`, run `python scripts/generate-case-studies.py` (or ask website thread) to refresh `site/case-studies/`.
+**After you edit `cases.json`:** run `npm run build` locally or push to GitHub for Netlify to rebuild. Astro generates case study pages from JSON at build time.
 
 ---
 
@@ -49,7 +66,7 @@
 - **Sandler:** pain first, permission to say no, mutual qualification, soft CTA
 - **Human tone:** like talking into the mic — not brochure copy
 - **No em dashes** in customer-facing copy
-- **Send FROM:** Logo Clothing Shop email (not stitchandstoneco.com yet)
+- **Send FROM:** hello@logoclothingshop.com (not stitchandstoneco.com yet)
 - **Stitch and Stone:** one subtle intro line only until launch
 
 ### One-pager PDF (print from HTML)
@@ -58,7 +75,7 @@
 - Featured stories: **Weldaloy, Orfin, Ven Johnson**
 - Logo Clothing Shop prominent; Stitch and Stone as small bridge line
 - Contact: Joe Toma, Business Development Director, Birmingham address, office + cell, HubSpot booking link
-- Replace `[your Logo Clothing Shop email]` before sending
+- Email: **hello@logoclothingshop.com**
 
 ### Email templates
 
@@ -77,10 +94,12 @@ Strategy doc: `content/sales/EMAIL-STRATEGY.md`
 ```
 content/case-studies/cases.json   ← EDIT HERE
          ↓
-python scripts/generate-case-studies.py
+npm run build   (or Netlify rebuild on push)
          ↓
-site/case-studies/*.html          ← DO NOT EDIT BY HAND
+dist/case-studies/*.html          ← live site output (do not edit by hand)
 ```
+
+**Deprecated:** `scripts/generate-case-studies.py` and legacy `site/case-studies/*.html` — do not use.
 
 Also see: `content/case-studies/AUDIT.md`, `UPDATE-NOTES.md`
 
@@ -88,19 +107,21 @@ Also see: `content/case-studies/AUDIT.md`, `UPDATE-NOTES.md`
 
 ## Still needed from owner
 
-- [ ] Logo Clothing Shop send email address (for PDF + signatures)
+- [x] Logo Clothing Shop send email — **hello@logoclothingshop.com**
 - [ ] Holly Q. direct quote (Ven Johnson)
 - [ ] Second Awecomm-network holiday company (name + story)
 - [ ] Photos (deferred)
+- [ ] Legacy case library archive (`.cursor/Case Studies`) — preserve before cleanup
 
 ---
 
 ## GitHub + website — won't jumble
 
 - **GitHub backup** = whole repo (use **private** repo for sales privacy)
-- **Live website** = **`site/` folder only** — sales never deploys
+- **Live website** = **`dist/`** from Astro (`npm run build`) — Netlify publishes this
+- **Sales never deploys** — `content/sales/` stays internal even though it's in the repo
 
-See `docs/DEPLOYMENT.md`. Your emails and one-pager stay in `content/sales/` and do not appear on stitchandstoneco.com.
+See `docs/DEPLOYMENT.md`. Your emails and one-pager do not appear on logoclothingshop.com.
 
 ---
 
@@ -110,6 +131,6 @@ See `docs/DEPLOYMENT.md`. Your emails and one-pager stay in `content/sales/` and
 |--------------|-------------|
 | New case study story | `UPDATE-NOTES.md` then `cases.json` |
 | Email script | `content/sales/` |
-| Website homepage copy | Tell website thread → `content/copy/` |
+| Website homepage copy | Tell website thread → `content/copy/` or `src/pages/` |
 | Photo for email/PDF | Your local machine or Drive — not required in repo |
-| Photo for live site | `site/images/` (website thread) |
+| Photo for live site | `public/images/` (website thread) |

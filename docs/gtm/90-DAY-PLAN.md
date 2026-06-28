@@ -1,11 +1,13 @@
-# Stitch & Stone Co. — 90-Day Action Plan
+# Logo Clothing Shop — 90-Day Action Plan
 
-**Start:** Week of June 24, 2026  
-**Focus:** Corporate gifting positioning · consultative sales · no website dependency  
+**Start:** Monday, June 29, 2026  
+**End target:** ~September 27, 2026 (90 days)  
+**Focus:** Corporate gifting positioning · consultative sales · **website + GTM in parallel**  
 **Audience:** Marketing coordinators (primarily women 30–60) — construction, legal, financial, insurance, manufacturing/tech — Michigan  
 
 **Primary CTA everywhere:** Plan a Gifting Program  
-**Bridge name:** Logo Clothing Shop (known) → Stitch & Stone Co. (future)
+**Brand now:** Logo Clothing Shop · **Soon:** Stitch & Stone Co. (bridge only until rebrand)  
+**Contact everywhere:** hello@logoclothingshop.com (monitored daily)
 
 **GTM assets:** `content/sales/` · **Sync doc:** `docs/gtm/HANDOFF.md`
 
@@ -15,14 +17,28 @@
 
 - **2–3 hours/week minimum** on marketing/sales activities (beyond production and existing orders)
 - **Track in a simple spreadsheet:** Contact · Industry · Last touch · Next step · Program type
-- **Website is paused** — use email, phone, LinkedIn, in-person, and PDF one-pager (`content/sales/one-pager.html`)
+- **Website + outbound together** — Astro site on Netlify (generic URL until custom domain connected); email, phone, LinkedIn, PDF one-pager (`content/sales/one-pager.html`); paid landing pages after ~2-week launch target
+- **Week 1 starts Monday, June 29, 2026** — Top 30 list begins Day 1 (Mon)
 - **Photos deferred** — use existing project photos where you have them; phone snapshots OK for outreach
+
+### Operator context (Joe)
+
+| Fact | Detail |
+|------|--------|
+| Team | Solo operator; occasional production help |
+| Capacity | Plenty of room for new gifting programs |
+| Turnaround | Typical 1–2 weeks; can push ~10 days when needed |
+| Gifting tiers | Open per-person budgets (e.g. $25 / $75 / $150); scales with headcount |
+| Sales approach | Active Sandler training; strong close rate on consultative calls |
+| Website status | Netlify deploy live (generic domain); **logoclothingshop.com** custom domain next; **stitchandstoneco.com** not live yet |
+| Google Business Profile | Logo Clothing Shop · 280 N Old Woodward Ave · hello@ |
+| HubSpot booking | Active — `meetings.hubspot.com/joe-toma/introductory-call` |
 
 ---
 
 ## 90-day outcomes (what "done" looks like)
 
-By **September 22, 2026** you should have:
+By **~September 27, 2026** you should have:
 
 | Outcome | Target |
 |---------|--------|
@@ -37,25 +53,25 @@ By **September 22, 2026** you should have:
 
 ---
 
-## Phase 1 — Foundation (Weeks 1–4 · Jun 24 – Jul 21)
+## Phase 1 — Foundation (Weeks 1–4 · Jun 29 – Jul 26)
 
 **Theme:** Lock messaging. Warm the base. Start saying "gifting program" out loud.
 
-### Week 1 (Jun 24–30) — Positioning lock
+### Week 1 (Jun 29 – Jul 5) — Positioning lock
 
 | Day | Action | Deliverable |
 |-----|--------|-------------|
-| Mon | Write one-page positioning doc (headline, 3 programs, 6 industry one-liners) | `docs/gtm/POSITIONING-ONE-PAGER.md` or printed PDF |
-| Tue | List top 30 past clients — rank by relationship strength + gifting potential | Spreadsheet tab: **Top 30** |
+| Mon | Start **Top 30** list + begin one-page positioning doc (headline, 3 programs, 6 industry one-liners) | Spreadsheet tab: **Top 30** + positioning draft |
+| Tue | Finish positioning doc | `docs/gtm/POSITIONING-ONE-PAGER.md` or printed PDF |
 | Wed | Draft 30-second intro: "We plan corporate gifting programs — curated and produced in-house." Practice out loud 10x | Script in notes |
-| Thu | Update email signature: Logo Clothing Shop · Corporate Gifting · [your LCS email] | Live in Outlook/Gmail |
+| Thu | Update email signature: Logo Clothing Shop · Corporate Gifting · hello@logoclothingshop.com | Live in Outlook/Gmail |
 | Fri | Update voicemail: mention gifting programs + callback number | Recorded |
 
 **Weekly metric:** Positioning doc done · Top 30 list done
 
 ---
 
-### Week 2 (Jul 1–7) — Hero stories & discovery script
+### Week 2 (Jul 6–12) — Hero stories & discovery script
 
 | Day | Action | Deliverable |
 |-----|--------|-------------|
@@ -76,7 +92,7 @@ By **September 22, 2026** you should have:
 
 ---
 
-### Week 3 (Jul 8–14) — Warm the base (past clients)
+### Week 3 (Jul 13–19) — Warm the base (past clients)
 
 | Day | Action | Deliverable |
 |-----|--------|-------------|
@@ -91,7 +107,7 @@ By **September 22, 2026** you should have:
 
 ---
 
-### Week 4 (Jul 15–21) — Program names + one-pager for sales
+### Week 4 (Jul 20–26) — Program names + one-pager for sales
 
 | Day | Action | Deliverable |
 |-----|--------|-------------|
@@ -105,11 +121,11 @@ By **September 22, 2026** you should have:
 
 ---
 
-## Phase 2 — Pipeline (Weeks 5–8 · Jul 22 – Aug 18)
+## Phase 2 — Pipeline (Weeks 5–8 · Jul 27 – Aug 23)
 
 **Theme:** Fill the pipeline. Referrals. Industry-specific outreach. First gifting proposals.
 
-### Week 5 (Jul 22–28) — Referral system
+### Week 5 (Jul 27 – Aug 2) — Referral system
 
 | Action | Detail |
 |--------|--------|
@@ -121,7 +137,7 @@ By **September 22, 2026** you should have:
 
 ---
 
-### Week 6 (Jul 29 – Aug 4) — Construction & trades push
+### Week 6 (Aug 3–9) — Construction & trades push
 
 | Action | Detail |
 |--------|--------|
@@ -133,7 +149,7 @@ By **September 22, 2026** you should have:
 
 ---
 
-### Week 7 (Aug 5–11) — Legal & professional services
+### Week 7 (Aug 10–16) — Legal & professional services
 
 | Action | Detail |
 |--------|--------|
@@ -145,7 +161,7 @@ By **September 22, 2026** you should have:
 
 ---
 
-### Week 8 (Aug 12–18) — Proposals & proof
+### Week 8 (Aug 17–23) — Proposals & proof
 
 | Action | Detail |
 |--------|--------|
@@ -157,11 +173,11 @@ By **September 22, 2026** you should have:
 
 ---
 
-## Phase 3 — Holiday acceleration (Weeks 9–12 · Aug 19 – Sep 22)
+## Phase 3 — Holiday acceleration (Weeks 9–12 · Aug 24 – Sep 20)
 
 **Theme:** Own Q4 gifting conversations before competitors flood inboxes.
 
-### Week 9 (Aug 19–25) — Holiday Made Easy campaign prep
+### Week 9 (Aug 24–30) — Holiday Made Easy campaign prep
 
 | Action | Detail |
 |--------|--------|
@@ -175,14 +191,14 @@ By **September 22, 2026** you should have:
 > September is when most marketing teams start planning year-end appreciation — especially if gifts ship to home addresses.  
 > We run **Holiday Made Easy** programs: curated packages, in-house embroidery and decoration, and delivery to one site or many.  
 > If that's on your 2026 list, I'd love a 20-minute call to see if we're a fit.  
-> — Joe · Logo Clothing Shop · [your LCS email] · (248) 382-8182  
+> — Joe · Logo Clothing Shop · hello@logoclothingshop.com · (248) 382-8182  
 > **Plan a Gifting Program** — just reply to this email.
 
 **Weekly metric:** Holiday email drafted · holiday list complete · bundle tiers defined
 
 ---
 
-### Week 10 (Aug 26 – Sep 1) — Holiday outreach blast
+### Week 10 (Aug 31 – Sep 6) — Holiday outreach blast
 
 | Action | Detail |
 |--------|--------|
@@ -194,7 +210,7 @@ By **September 22, 2026** you should have:
 
 ---
 
-### Week 11 (Sep 2–8) — Event + manufacturing/tech
+### Week 11 (Sep 7–13) — Event + manufacturing/tech
 
 | Action | Detail |
 |--------|--------|
@@ -206,20 +222,20 @@ By **September 22, 2026** you should have:
 
 ---
 
-### Week 12 (Sep 9–15) — Close the 90 days · soft rebrand
+### Week 12 (Sep 14–20) — Close the 90 days · soft rebrand
 
 | Action | Detail |
 |--------|--------|
 | **90-day review:** Pipeline spreadsheet — conversations, proposals, wins, losses | 1-hour review |
 | Send **Stitch & Stone Co.** soft intro to top 20 clients (email: "evolving our name, same team") | Bridge message |
 | Proposals on table for holiday programs | Goal: 3+ active holiday programs in discussion |
-| Decide: Resume website build? (Phase 2 pages: Services, Industries, About) | Go/no-go for Oct |
+| Website Phase 2 progress check (Services, Industries, About) | Go/no-go for Oct paid campaigns |
 
 **Weekly metric:** Review complete · 20 rebrand bridge emails · 3 holiday programs in pipeline
 
 ---
 
-## Week 13 buffer (Sep 16–22)
+## Week 13 buffer (Sep 21–27)
 
 Use this week to complete any missed Phase 3 items. **Do not skip holiday outreach** — it's time-sensitive.
 
@@ -242,13 +258,14 @@ Use this week to complete any missed Phase 3 items. **Do not skip holiday outrea
 | Tool | Use |
 |------|-----|
 | Spreadsheet (Excel/Google) | Top 30, dream 5, holiday list, pipeline |
-| Logo Clothing Shop email | Outreach, proposals |
+| hello@logoclothingshop.com | Outreach, proposals, website contact |
 | Phone | Warm calls beat cold email in your market |
 | LinkedIn | Credibility + industry posts |
 | `content/sales/one-pager.html` | Print PDF — attach to emails |
-| Cursor + terminal | When you resume site: `.\scripts\serve.ps1` |
+| Astro site on Netlify | Live on generic URL now; connect logoclothingshop.com when ready |
+| Cursor + terminal | `.\scripts\serve.ps1` or `npm run dev` for local preview |
 
-**You do not need:** website live, ads, CRM (yet), or new photos to execute this plan.
+**You do not need:** stitchandstoneco.com live, CRM (yet), or perfect photos to start outreach. Paid ads/landing pages: target ~2 weeks after site launch on custom domain.
 
 ---
 
@@ -267,8 +284,9 @@ Use this week to complete any missed Phase 3 items. **Do not skip holiday outrea
 
 ## What NOT to do (focus protection)
 
-- Don't rebuild the website during Phase 1–2 unless a deal requires it
-- Don't buy ads or new software stacks
+- Don't let website Phase 2 (Services, Industries, About) block daily outbound — ship pages incrementally
+- Don't buy ads before logoclothingshop.com is on Netlify and core pages are ready (~2-week target)
+- Don't buy new software stacks
 - Don't lead with "embroidery and screen printing" on first touch
 - Don't send catalog links — send **program + story**
 - Don't wait for perfect photos to start outreach
@@ -279,7 +297,7 @@ Use this week to complete any missed Phase 3 items. **Do not skip holiday outrea
 
 | Priority | Action |
 |----------|--------|
-| **Oct** | Close holiday programs · resume website Phase 2 (Services, Industries, About) |
+| **Oct** | Close holiday programs · finish website Phase 2 (Services, Industries, About) · run paid campaigns |
 | **Nov** | Execute holiday production · ship-to-home |
 | **Dec** | Deliver · collect testimonials · referral asks |
 | **Jan 2027** | Publish 3 Insights posts · GBP refresh for Stitch & Stone Co. |

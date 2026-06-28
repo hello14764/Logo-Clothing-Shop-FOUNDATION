@@ -38,7 +38,7 @@ https://meetings.hubspot.com/joe-toma/introductory-call
 Joe Toma  
 Business Development Director  
 Logo Clothing Shop  
-[your Logo Clothing Shop email]  
+hello@logoclothingshop.com  
 (248) 382-8182 · (248) 470-9926  
 280 N Old Woodward Ave, Suite 100 · Birmingham, MI 48009
 

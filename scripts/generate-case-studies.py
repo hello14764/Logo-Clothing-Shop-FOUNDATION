@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Generate case study HTML pages from content/case-studies/cases.json"""
+"""DEPRECATED — Do not use.
+
+Live case study pages are built by Astro from content/case-studies/cases.json.
+Run: npm run build
+
+This script only generated legacy HTML into site/case-studies/ (deprecated prototype).
+"""
 
 import json
 import os

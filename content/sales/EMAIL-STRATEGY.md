@@ -8,11 +8,11 @@ Your clients know you. They have your number. They do not know Stitch and Stone 
 
 | Use now | Save for launch |
 |---------|-----------------|
-| **From:** your Logo Clothing Shop email | hello@stitchandstoneco.com |
+| **From:** hello@logoclothingshop.com | hello@stitchandstoneco.com |
 | **Signature:** Logo Clothing Shop | Lead with Stitch and Stone |
 | **Subject lines:** your name or their problem | New brand in subject |
 
-**Replace `[your Logo Clothing Shop email]`** in the templates below with whatever you actually send from today (e.g. joe@logoclothingshop.com).
+**Confirmed send address:** hello@logoclothingshop.com (website, email, marketing — monitored daily).
 
 ---
 

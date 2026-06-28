@@ -1,0 +1,42 @@
+---
+interface Props {
+  variant?: 'hero' | 'card' | 'square';
+  label?: string;
+  class?: string;
+}
+
+const {
+  variant = 'card',
+  label = 'Photo coming soon',
+  class: className = '',
+}: Props = Astro.props;
+
+const sizes = {
+  hero: 'aspect-[4/3] w-full min-h-[240px] sm:min-h-[280px]',
+  card: 'aspect-[4/3] w-full',
+  square: 'aspect-square w-full',
+};
+---
+
+<div
+  class:list={[
+    'hero-visual-frame flex items-center justify-center p-6 text-center',
+    sizes[variant],
+    className,
+  ]}
+  aria-hidden={label === 'Photo coming soon' ? 'true' : undefined}
+>
+  <div>
+    <div
+      class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-white/80"
+      aria-hidden="true"
+    >
+      <svg class="h-5 w-5 text-gold" viewBox="0 0 24 24" fill="none">
+        <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5"></rect>
+        <circle cx="9" cy="11" r="1.5" fill="currentColor"></circle>
+        <path d="M4 16l4-4 3 3 5-6 4 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+      </svg>
+    </div>
+    <p class="text-xs font-medium uppercase tracking-wider text-muted">{label}</p>
+  </div>
+</div>

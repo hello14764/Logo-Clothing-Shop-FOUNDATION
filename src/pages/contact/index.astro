@@ -11,84 +11,75 @@ import { site } from '@/lib/site';
   description="Contact Logo Clothing Shop to plan a corporate gifting program. Michigan-based, in-house embroidery and screen printing. Birmingham, MI."
 >
   <PageHero
+    tag="Contact"
     title="Plan a Gifting Program"
     lead="Tell us about your team, your clients, and the impression you want to make. We'll follow up to schedule a curation call."
   />
 
   <Section>
     <div class="grid gap-12 lg:grid-cols-2">
-      <div>
-        <h3 class="mb-3 text-2xl">{site.name}</h3>
-        <p class="mb-4 text-muted">Corporate gifting and in-house decoration. Serving companies across Michigan and beyond.</p>
-        <p class="mb-4"><strong>Joe Toma</strong><br />Business Development Director</p>
-        <p class="mb-4 text-muted">
+      <div class="surface-card">
+        <p class="mb-2 eyebrow">Direct line</p>
+        <h2 class="mb-4 text-2xl">{site.name}</h2>
+        <p class="mb-6 text-muted">Corporate gifting and in-house decoration. Serving companies across Michigan and beyond.</p>
+        <p class="mb-4">
+          <strong>Joe Toma</strong><br />
+          Business Development Director
+        </p>
+        <p class="mb-6 text-muted">
           {site.address.street}<br />
           {site.address.city}
         </p>
-        <p class="mb-6">
-          <a href={`mailto:${site.email}`} class="text-navy hover:text-navy-light">{site.email}</a><br />
-          <a href={site.phoneOfficeHref} class="text-navy hover:text-navy-light">{site.phoneOffice}</a> office<br />
-          <a href={site.phoneCellHref} class="text-navy hover:text-navy-light">{site.phoneCell}</a> cell
+        <p class="mb-6 space-y-1">
+          <a href={`mailto:${site.email}`} class="block font-medium text-navy no-underline hover:text-gold-dark">
+            {site.email}
+          </a>
+          <a href={site.phoneOfficeHref} class="block text-muted no-underline hover:text-navy">
+            {site.phoneOffice} office
+          </a>
+          <a href={site.phoneCellHref} class="block text-muted no-underline hover:text-navy">
+            {site.phoneCell} cell
+          </a>
         </p>
         <Button href={site.bookingUrl}>Book an introductory call</Button>
         <p class="mt-6 text-sm italic text-muted">{site.footerBridge}</p>
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span class="trust-pill">20-minute curation call</span>
+          <span class="trust-pill">No pressure</span>
+        </div>
       </div>
 
-      <form class="space-y-5 rounded-lg border border-stone/60 bg-white p-6 shadow-sm" action="#" method="post">
-        <!-- Connect to Netlify Forms, Formspree, or similar at deploy time -->
+      <form
+        class="surface-card space-y-5"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        action="/contact/?submitted=true"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="eyebrow">Project inquiry</p>
+        <h2 class="text-2xl">Send a message</h2>
         <div>
           <label for="name" class="mb-1.5 block text-sm font-medium">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            autocomplete="name"
-            class="w-full rounded-md border border-stone/60 bg-warm-gray px-3 py-2.5 focus:border-navy focus:outline-none"
-          />
+          <input type="text" id="name" name="name" required autocomplete="name" class="input-field" />
         </div>
         <div>
           <label for="company" class="mb-1.5 block text-sm font-medium">Company</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            required
-            autocomplete="organization"
-            class="w-full rounded-md border border-stone/60 bg-warm-gray px-3 py-2.5 focus:border-navy focus:outline-none"
-          />
+          <input type="text" id="company" name="company" required autocomplete="organization" class="input-field" />
         </div>
         <div>
           <label for="email" class="mb-1.5 block text-sm font-medium">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            autocomplete="email"
-            class="w-full rounded-md border border-stone/60 bg-warm-gray px-3 py-2.5 focus:border-navy focus:outline-none"
-          />
+          <input type="email" id="email" name="email" required autocomplete="email" class="input-field" />
         </div>
         <div>
           <label for="phone" class="mb-1.5 block text-sm font-medium">
-            Phone <span class="text-muted">(optional)</span>
+            Phone <span class="font-normal text-muted">(optional)</span>
           </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            autocomplete="tel"
-            class="w-full rounded-md border border-stone/60 bg-warm-gray px-3 py-2.5 focus:border-navy focus:outline-none"
-          />
+          <input type="tel" id="phone" name="phone" autocomplete="tel" class="input-field" />
         </div>
         <div>
           <label for="interest" class="mb-1.5 block text-sm font-medium">I'm interested in</label>
-          <select
-            id="interest"
-            name="interest"
-            required
-            class="w-full rounded-md border border-stone/60 bg-warm-gray px-3 py-2.5 focus:border-navy focus:outline-none"
-          >
+          <select id="interest" name="interest" required class="input-field">
             <option value="">Select one</option>
             <option value="gifting">Corporate gifting program</option>
             <option value="employee">Employee appreciation</option>
@@ -104,12 +95,12 @@ import { site } from '@/lib/site';
             id="message"
             name="message"
             placeholder="Occasion, approximate quantity, timeline, industry…"
-            class="min-h-[120px] w-full rounded-md border border-stone/60 bg-warm-gray px-3 py-2.5 focus:border-navy focus:outline-none"
+            class="input-field min-h-[120px]"
           ></textarea>
         </div>
         <button
           type="submit"
-          class="inline-flex items-center justify-center rounded-md border border-navy bg-navy px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-dark"
+          class="inline-flex w-full items-center justify-center rounded-lg border border-navy bg-navy px-6 py-3 text-sm font-semibold text-white shadow-soft transition-all hover:bg-navy-dark sm:w-auto"
         >
           Plan a Gifting Program
         </button>

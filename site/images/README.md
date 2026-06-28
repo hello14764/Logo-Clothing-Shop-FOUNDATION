@@ -18,4 +18,5 @@ Photos for the **live site only**. Not for sales PDFs (those live in `content/sa
 
 ## Deploy note
 
-Everything in `site/` can go live. This folder is part of the public website.
+**Deprecated folder.** The live site is built from `src/` → `dist/` (Astro).  
+Use `public/images/` for website photos. See `docs/DEPLOYMENT.md`.

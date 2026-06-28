@@ -1,7 +1,9 @@
-# Stitch & Stone Co. — Site Architecture Plan
+# Logo Clothing Shop — Site Architecture Plan
 
-**Domain:** stitchandstoneco.com (primary) · stitchstoneco.com (redirect)  
-**Launch phase:** Build in repo → preview deploy → go live → redirect logoclothingshop.com  
+**Launch domain:** logoclothingshop.com (connect to Netlify next)  
+**Future domain:** stitchandstoneco.com · stitchstoneco.com (redirect) — not live yet  
+**Brand on site:** Logo Clothing Shop today · soon Stitch & Stone Co. (bridge in header/footer)  
+**Launch target:** ~2 weeks from Jun 2026 (paid landing pages after core site live)  
 **Positioning:** Corporate gifting first · In-house production as proof
 
 ---
@@ -33,7 +35,7 @@ PRODUCTION & PROMO         ← Credibility + existing promo clients
 | **Services** | Dropdown | `/services/` | Production & promo hub |
 | ↳ Embroidery | Link | `/services/embroidery/` | |
 | ↳ Screen Printing | Link | `/services/screen-printing/` | |
-| ↳ Full-Color Decoration | Link | `/services/full-color-decoration/` | |
+| ↳ Web Store Programs | Link | `/services/web-store-programs/` | Employee uniform ordering |
 | ↳ Promotional Products | Link | `/services/promotional-products/` | "Partner in promo" lives here |
 | **Industries** | Dropdown | `/industries/` | SEO hub + proof you get their world |
 | ↳ Construction | Link | `/industries/construction/` | Launch priority |
@@ -64,7 +66,7 @@ PRODUCTION & PROMO         ← Credibility + existing promo clients
 | Services overview | `/services/` | P1 |
 | Embroidery | `/services/embroidery/` | P1 |
 | Screen Printing | `/services/screen-printing/` | P1 |
-| Full-Color Decoration | `/services/full-color-decoration/` | P1 |
+| Web Store Programs | `/services/web-store-programs/` | P1 |
 | Promotional Products | `/services/promotional-products/` | P1 |
 | Industries hub | `/industries/` | P1 |
 | Construction | `/industries/construction/` | P1 |
@@ -211,7 +213,7 @@ Gifting-first. Production supports trust — does not lead.
 ### Technical SEO (when building)
 
 - One `<h1>` per page
-- Title pattern: `{Page} | Stitch & Stone Co. · Michigan`
+- Title pattern: `{Page} | Logo Clothing Shop · Soon Stitch & Stone Co.`
 - Meta descriptions unique per page
 - Internal links: industry ↔ case study ↔ gifting
 - Local: address/service area in footer; Google Business aligned at launch
@@ -222,43 +224,25 @@ Gifting-first. Production supports trust — does not lead.
 ## URL & file structure (repo)
 
 ```
-site/
-├── index.html
-├── corporate-gifting/
-├── how-it-works/
-├── contact/
-├── services/
-│   ├── index.html
-│   ├── embroidery/
-│   ├── screen-printing/
-│   ├── full-color-decoration/
-│   └── promotional-products/
-├── industries/
-│   ├── index.html
-│   ├── construction/
-│   ├── legal-financial/
-│   └── ...
-├── case-studies/
-│   ├── index.html
-│   └── [slug]/
-├── insights/
-│   ├── index.html
-│   └── [slug]/
-├── about/
-├── css/
-│   └── styles.css
-├── js/                    # minimal only if needed
-└── images/
+src/                          ← ASTRO WEBSITE SOURCE (live)
+├── pages/                    ← routes
+├── layouts/, components/
+├── lib/site.ts               ← contact, nav, brand bridge
+└── styles/
+
+public/                       ← static assets (logo, future photos)
+dist/                         ← BUILD OUTPUT — Netlify publishes this
+
+site/                         ← DEPRECATED static prototype (do not edit)
 
 content/
-├── copy/                  # Markdown source for every page
-├── case-studies/
-└── insights/
+├── copy/                     ← Markdown outlines for every page
+├── case-studies/cases.json   ← case study source of truth
+└── insights/                 ← future blog source
 
 brand/
 ├── colors.md
-├── fonts.md
-└── logo-stitch-stone/
+└── logo-stitch-stone/        ← future rebrand assets
 ```
 
 ---
@@ -267,8 +251,8 @@ brand/
 
 | Phase | Pages | Goal |
 |-------|-------|------|
-| **1 — Foundation** | Home, Corporate Gifting, How It Works, Contact + shared CSS | Preview deploy |
-| **2 — Trust** | Services (all), Industries (2), Case Studies (2–3), About | Go live ready |
+| **1 — Foundation** | Home, Corporate Gifting, How It Works, Contact + case studies from JSON | **Complete** — Netlify preview live |
+| **2 — Trust** | Services (all), Industries (2), About | Go live ready (~2-week target) |
 | **3 — Growth** | Insights (3 posts), more industries, more case studies | SEO momentum |
 
 ---
@@ -286,8 +270,12 @@ brand/
 
 - [x] Primary CTA label: **Plan a Gifting Program**
 - [x] Insights vs Blog in nav: **Insights**
+- [x] SEO title pattern: **Logo Clothing Shop · Soon Stitch & Stone Co.**
+- [x] Launch domain: **logoclothingshop.com**
+- [x] Contact email: **hello@logoclothingshop.com**
 
 ## Open decisions
 
 - [x] Phone number + service area copy for footer
-- [ ] 2–3 case studies to write first (industry + rough story)
+- [x] 20 case studies in `cases.json` (Phase 1 complete)
+- [ ] Connect custom domain + contact form before paid ads

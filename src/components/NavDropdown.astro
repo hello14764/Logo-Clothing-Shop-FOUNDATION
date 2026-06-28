@@ -1,0 +1,72 @@
+---
+import type { NavDropdown as NavDropdownType } from '@/lib/site';
+
+interface Props {
+  menu: NavDropdownType;
+  currentPath: string;
+}
+
+const { menu, currentPath }: Props = Astro.props;
+
+const isActive =
+  (menu.href && currentPath.startsWith(menu.href)) ||
+  menu.children.some((item) => currentPath.startsWith(item.href));
+---
+
+<li class="nav-dropdown relative">
+  <button
+    type="button"
+    class:list={[
+      'flex w-full items-center justify-between gap-1 rounded-md px-2 py-2 text-sm font-medium lg:w-auto lg:px-0 lg:py-0',
+      isActive ? 'text-navy' : 'text-ink hover:text-navy-light',
+    ]}
+    aria-expanded="false"
+    aria-haspopup="true"
+  >
+    {menu.label}
+    <svg class="h-4 w-4 shrink-0 opacity-60" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+    </svg>
+  </button>
+  <ul
+    class="nav-dropdown-panel mt-1 hidden space-y-1 border-stone/30 pl-3 lg:absolute lg:left-0 lg:top-full lg:mt-2 lg:block lg:min-w-[13rem] lg:rounded-lg lg:border lg:bg-white lg:p-2 lg:pl-2 lg:shadow-card"
+    role="menu"
+  >
+    {
+      menu.href && (
+        <li role="none">
+          <a
+            href={menu.href}
+            role="menuitem"
+            class:list={[
+              'block rounded-md px-3 py-2 text-sm no-underline lg:font-semibold',
+              currentPath === menu.href || (currentPath.startsWith(menu.href) && currentPath === menu.href)
+                ? 'bg-warm-gray text-navy'
+                : 'text-ink hover:bg-warm-gray hover:text-navy',
+            ]}
+          >
+            Overview
+          </a>
+        </li>
+      )
+    }
+    {
+      menu.children.map((item) => (
+        <li role="none">
+          <a
+            href={item.href}
+            role="menuitem"
+            class:list={[
+              'block rounded-md px-3 py-2 text-sm no-underline',
+              currentPath.startsWith(item.href)
+                ? 'bg-warm-gray font-medium text-navy'
+                : 'text-ink hover:bg-warm-gray hover:text-navy',
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</li>

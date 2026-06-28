@@ -2,8 +2,8 @@
 
 ## Rule
 
-| Location | On logoclothingshop.com / stitchandstoneco.com? | In GitHub backup? |
-|----------|--------------------------------------------------|-------------------|
+| Location | On logoclothingshop.com? | In GitHub backup? |
+|----------|--------------------------|-------------------|
 | `dist/` (from `npm run build`) | **YES** — Netlify publishes this | No (generated) |
 | `src/`, `public/` | **YES** — source for the build | Yes |
 | `site/` | **NO** — deprecated static prototype | Yes (reference only) |
@@ -12,6 +12,8 @@
 | `content/copy/` | **NO** — drafting outlines | Yes |
 | `docs/` | **NO** | Yes |
 | `.cursor/` | **NO** | Optional (working notes) |
+
+**stitchandstoneco.com** is not live yet. Launch on **logoclothingshop.com** first; rebrand domain later.
 
 **Sales PDFs you email to clients are never part of the website** as long as publish directory is `dist/` only.
 
@@ -68,7 +70,12 @@ Keep those in `content/sales/` and `docs/gtm/`.
 
 ## Launch checklist
 
-1. Connect repo to Netlify — build `npm run build`, publish `dist`
-2. Point stitchandstoneco.com DNS to host
-3. Verify `content/sales/` URLs are not reachable on live domain
-4. Later: 301 logoclothingshop.com → new site
+| Step | Status (Jun 2026) |
+|------|-------------------|
+| Connect repo to Netlify — build `npm run build`, publish `dist` | **Done** (generic `*.netlify.app` URL) |
+| Connect **logoclothingshop.com** DNS (Cloudflare → Netlify) | **Next** |
+| Wire contact form (Netlify Forms or Formspree) | Pending |
+| Verify `content/sales/` URLs are not reachable on live domain | After custom domain live |
+| Google Business Profile aligned (Logo Clothing Shop · 280 N Old Woodward · hello@) | **Done** |
+| **stitchandstoneco.com** go-live + rebrand | Later |
+| 301 logoclothingshop.com → stitchandstoneco.com | **Not yet** — no redirect today |

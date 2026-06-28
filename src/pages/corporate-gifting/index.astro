@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/Button.astro';
 import Card from '@/components/Card.astro';
 import CTABand from '@/components/CTABand.astro';
+import ImagePlaceholder from '@/components/ImagePlaceholder.astro';
 import PageHero from '@/components/PageHero.astro';
 import Section from '@/components/Section.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
@@ -13,64 +14,84 @@ import SectionHeader from '@/components/SectionHeader.astro';
   description="Corporate gifting programs curated and produced in-house for marketing and HR teams who want gifts that feel thoughtful, not generic swag. Plan a Gifting Program in Michigan."
 >
   <PageHero
+    tag="Corporate gifting"
     title="Corporate gifting programs, curated and produced in-house"
     lead="For marketing and HR teams who want gifts that feel thoughtful, not generic swag."
+    visual
   >
-    <div class="mt-6">
+    <div class="mt-8 flex flex-wrap gap-3">
       <Button href="/contact/">Plan a Gifting Program</Button>
+      <Button href="/how-it-works/" variant="secondary">See How It Works</Button>
     </div>
   </PageHero>
 
   <Section>
-    <div class="prose-wide">
-      <h2>Who this is for</h2>
-      <ul>
-        <li>Corporate marketing coordinators planning appreciation programs</li>
-        <li>HR and people teams managing onboarding and milestones</li>
-        <li>Executive assistants coordinating client thank-yous and holiday gifting</li>
-        <li>Michigan companies in the Detroit metro and statewide</li>
-      </ul>
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div class="prose-section">
+        <SectionHeader eyebrow="Audience" title="Who this is for" accent />
+        <ul>
+          <li>Corporate marketing coordinators planning appreciation programs</li>
+          <li>HR and people teams managing onboarding and milestones</li>
+          <li>Executive assistants coordinating client thank-yous and holiday gifting</li>
+          <li>Michigan companies in the Detroit metro and statewide</li>
+        </ul>
+      </div>
+      <ImagePlaceholder variant="square" label="Gifting program photo coming soon" />
     </div>
   </Section>
 
   <Section tone="alt">
     <div id="occasions">
-    <SectionHeader title="Occasions we build programs for" />
-    <div class="grid gap-6 md:grid-cols-3">
-      {
-        [
-          ['Welcome & onboarding', 'First-day kits that make new hires feel valued from day one.'],
-          ['Milestones & anniversaries', 'Work anniversaries, safety awards, and project close-out recognition.'],
-          ['Client appreciation', 'Referral thank-yous and retention gifts that reflect your brand standards.'],
-          ['Holiday ship-to-home', 'One program, many addresses. We handle logistics nationwide.'],
-          ['Construction & field teams', 'Durable, practical, premium. Gifts that respect the work.'],
-          ['Events & conferences', 'Curated items for attendees, speakers, and VIP clients.'],
-        ].map(([title, copy]) => (
-          <Card title={title}>
-            <p>{copy}</p>
-          </Card>
-        ))
-      }
-    </div>
+      <SectionHeader
+        eyebrow="Programs"
+        title="Occasions we build programs for"
+        description="Curated packages for the moments that matter to your organization."
+      />
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          [
+            ['Welcome & onboarding', 'First-day kits that make new hires feel valued from day one.'],
+            ['Milestones & anniversaries', 'Work anniversaries, safety awards, and project close-out recognition.'],
+            ['Client appreciation', 'Referral thank-yous and retention gifts that reflect your brand standards.'],
+            ['Holiday ship-to-home', 'One program, many addresses. We handle logistics nationwide.'],
+            ['Construction & field teams', 'Durable, practical, premium. Gifts that respect the work.'],
+            ['Events & conferences', 'Curated items for attendees, speakers, and VIP clients.'],
+          ].map(([title, copy]) => (
+            <Card title={title}>
+              <p>{copy}</p>
+            </Card>
+          ))
+        }
+      </div>
     </div>
   </Section>
 
   <Section>
-    <div class="prose-wide">
-      <h2>What's included</h2>
-      <ul>
-        <li>Discovery and curation consultation</li>
-        <li>Product selection aligned to your brand and budget</li>
-        <li>Art preparation and in-house decoration</li>
-        <li>Packaging and presentation</li>
-        <li>Single-site or multi-address shipping</li>
-        <li>One dedicated point of contact from start to finish</li>
-      </ul>
+    <div class="grid gap-10 lg:grid-cols-2">
+      <div class="prose-section">
+        <SectionHeader eyebrow="Included" title="What's included" accent />
+        <ul>
+          <li>Discovery and curation consultation</li>
+          <li>Product selection aligned to your brand and budget</li>
+          <li>Art preparation and in-house decoration</li>
+          <li>Packaging and presentation</li>
+          <li>Single-site or multi-address shipping</li>
+          <li>One dedicated point of contact from start to finish</li>
+        </ul>
+      </div>
+      <div class="prose-section">
+        <SectionHeader eyebrow="FAQ" title="Common questions" />
+        <h3>Is there a minimum order?</h3>
+        <p>It depends on the program. We'll discuss scope and budget on your first call. No pressure.</p>
+        <h3>Can you ship to home addresses?</h3>
+        <p>Yes. Holiday and remote-team programs are a specialty.</p>
+      </div>
     </div>
   </Section>
 
   <Section tone="alt">
     <SectionHeader
+      eyebrow="Production"
       title="Why in-house production matters"
       description="Your gifts aren't passed to a third party for decoration. We control quality, turnaround, and brand execution at our Michigan shop."
     />
@@ -84,20 +105,6 @@ import SectionHeader from '@/components/SectionHeader.astro';
       <Card title="Consistent branding">
         <p>Every item meets your standards, from first sample to final delivery.</p>
       </Card>
-    </div>
-  </Section>
-
-  <Section>
-    <div class="prose-wide">
-      <h2>Common questions</h2>
-      <h3>Is there a minimum order?</h3>
-      <p>It depends on the program. We'll discuss scope and budget on your first call. No pressure.</p>
-      <h3>What's the typical lead time?</h3>
-      <p>Varies by program size and decoration. We'll give you a clear timeline during curation.</p>
-      <h3>Can you ship to individual home addresses?</h3>
-      <p>Yes. Holiday and remote-team programs are a specialty.</p>
-      <h3>Do you work with our brand guidelines?</h3>
-      <p>Absolutely. We align colors, logos, and tone to your existing standards.</p>
     </div>
   </Section>
 

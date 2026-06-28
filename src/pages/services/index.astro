@@ -1,0 +1,74 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import Card from '@/components/Card.astro';
+import CTABand from '@/components/CTABand.astro';
+import GiftingBanner from '@/components/GiftingBanner.astro';
+import HubLinkCard from '@/components/HubLinkCard.astro';
+import PageHero from '@/components/PageHero.astro';
+import Section from '@/components/Section.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import { servicesList } from '@/lib/site';
+---
+
+<BaseLayout
+  title="In-House Decoration & Promotional Products"
+  description="Embroidery, screen printing, employee web store programs, and promotional products — in-house at our Michigan shop. Logo Clothing Shop."
+>
+  <PageHero
+    tag="Production & promo"
+    title="In-house decoration and promotional products"
+    lead="Embroidery, screen printing, employee web stores, and promo — plus the full-service partnership you expect from a Michigan shop."
+    visual
+  >
+    <div class="mt-8">
+      <Button href="/contact/">Talk about a project</Button>
+    </div>
+  </PageHero>
+
+  <Section>
+    <GiftingBanner />
+    <SectionHeader
+      eyebrow="Capabilities"
+      title="What we produce in-house"
+      description="Every capability supports our gifting programs — and stands on its own for production clients."
+    />
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        servicesList.map((service) => (
+          <HubLinkCard
+            href={`/services/${service.slug}/`}
+            title={service.title}
+            teaser={service.teaser}
+          />
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section tone="alt">
+    <SectionHeader
+      eyebrow="Partnership"
+      title="Your partner in promo"
+      description="Full-service promotional partner — sourcing, decoration, and project management for teams who need reliable production beyond one-off gifts."
+      accent
+    />
+    <div class="grid gap-6 md:grid-cols-3">
+      <Card title="Consultative approach">
+        <p>We learn your goals before recommending products. Same standards as our gifting programs.</p>
+      </Card>
+      <Card title="Michigan-based">
+        <p>Production at our Birmingham shop. Quality and turnaround under our control.</p>
+      </Card>
+      <Card title="One roof">
+        <p>Gifting curation and production decoration — one partner, one point of contact.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <CTABand
+    title="Building a gifting program or a production run?"
+    description="Tell us what you're making. We'll walk through scope, timeline, and next steps."
+    buttonLabel="Start a conversation"
+  />
+</BaseLayout>

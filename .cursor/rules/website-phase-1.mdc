@@ -17,7 +17,8 @@ alwaysApply: false
 
 - **Primary display name:** Logo Clothing Shop (header logo)
 - **Bridge line:** "Becoming Stitch & Stone Co." (header) / footer intro line
-- **Do not** lead with Stitch & Stone Co. in `<title>` until owner says go live
+- **SEO `<title>` pattern:** `{Page} | Logo Clothing Shop · Soon Stitch & Stone Co.` (via `site.seoTitleSuffix` in BaseLayout)
+- **Do not** lead with Stitch & Stone Co. alone in `<title>` until full rebrand go-live
 
 ## Colors (tailwind.config.mjs)
 

@@ -1,0 +1,59 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import CTABand from '@/components/CTABand.astro';
+import HubLinkCard from '@/components/HubLinkCard.astro';
+import PageHero from '@/components/PageHero.astro';
+import Section from '@/components/Section.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import { industriesList } from '@/lib/site';
+---
+
+<BaseLayout
+  title="Industries We Serve"
+  description="Corporate gifting and branded programs for construction, legal, financial, and professional services teams in Michigan."
+>
+  <PageHero
+    tag="Industries"
+    title="Gifting and branded programs by industry"
+    lead="We learn your sector — construction jobsites, law firm discretion, or corporate culture — and curate accordingly."
+    visual
+  >
+    <div class="mt-8">
+      <Button href="/contact/">Plan a Gifting Program</Button>
+    </div>
+  </PageHero>
+
+  <Section>
+    <SectionHeader
+      eyebrow="Sectors"
+      title="Where we do our best work"
+      description="Launch industries below. More sectors coming as we expand proof and content."
+    />
+    <div class="grid gap-6 md:grid-cols-2">
+      {
+        industriesList.map((industry) => (
+          <HubLinkCard
+            href={`/industries/${industry.slug}/`}
+            title={industry.title}
+            teaser={industry.teaser}
+          />
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section tone="alt">
+    <SectionHeader
+      centered
+      eyebrow="Consultative"
+      title="One partner, many contexts"
+      description="Whether your team is in the field, in the courtroom, or in the boardroom — we match product, presentation, and tone to your world."
+    />
+  </Section>
+
+  <CTABand
+    title="Not sure which program fits your industry?"
+    description="Book a short call. We'll learn your team and recommend a direction."
+  />
+</BaseLayout>

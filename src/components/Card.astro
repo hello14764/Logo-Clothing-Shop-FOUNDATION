@@ -3,17 +3,21 @@ interface Props {
   tag?: string;
   title: string;
   class?: string;
+  featured?: boolean;
 }
 
-const { tag, title, class: className = '' }: Props = Astro.props;
+const { tag, title, class: className = '', featured = false }: Props = Astro.props;
 ---
 
-<article class:list={['rounded-lg border border-stone/60 bg-white p-6 shadow-sm', className]}>
-  {tag && (
-    <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-gold">{tag}</p>
-  )}
+<article
+  class:list={[
+    featured ? 'surface-card-featured pl-7' : 'surface-card-hover',
+    className,
+  ]}
+>
+  {tag && <p class="mb-2 eyebrow">{tag}</p>}
   <h3 class="mb-3 text-xl text-navy">{title}</h3>
-  <div class="text-muted [&_p]:text-muted">
+  <div class="text-muted [&_p]:leading-relaxed [&_p]:text-muted">
     <slot />
   </div>
 </article>

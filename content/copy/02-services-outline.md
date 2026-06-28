@@ -8,7 +8,7 @@
 ## Hero
 
 - **H1:** In-house decoration & promotional products
-- **Subhead:** Embroidery, screen printing, and full-color decoration — plus the promo partnership you expect from a full-service shop.
+- **Subhead:** Embroidery, screen printing, employee web stores, and promotional products — plus the full-service partnership you expect from a Michigan shop.
 - **Banner (top):** Building a gifting program? → `/corporate-gifting/`
 
 ---
@@ -17,8 +17,10 @@
 
 1. **Embroidery** — `/services/embroidery/`  
 2. **Screen printing** — `/services/screen-printing/`  
-3. **Full-color decoration** — `/services/full-color-decoration/`  
+3. **Web store programs** — `/services/web-store-programs/`  
 4. **Promotional products** — `/services/promotional-products/`  
+
+*(Full-color decoration is a capability across embroidery and screen print — not a standalone nav item.)*
 
 ---
 

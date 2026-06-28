@@ -9,12 +9,21 @@
 
   body {
     @apply bg-warm-gray font-body text-[1.0625rem] leading-relaxed text-ink;
+    background-image: radial-gradient(
+      ellipse 120% 80% at 50% -20%,
+      rgba(255, 255, 255, 0.7) 0%,
+      transparent 50%
+    );
   }
 
   h1,
   h2,
   h3 {
     @apply font-display font-semibold tracking-tight text-navy;
+  }
+
+  h1 {
+    @apply text-balance;
   }
 
   a {
@@ -24,7 +33,7 @@
 
 @layer components {
   .container-content {
-    @apply mx-auto w-full max-w-content px-5 sm:px-6;
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
   }
 
   .prose-wide {
@@ -45,5 +54,91 @@
 
   .prose-wide p {
     @apply text-muted;
+  }
+
+  /* Premium UI primitives */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-gold-dark;
+  }
+
+  .eyebrow-line {
+    @apply eyebrow flex items-center gap-3;
+  }
+
+  .eyebrow-line::before {
+    content: '';
+    @apply h-px w-8 shrink-0 bg-gradient-to-r from-gold to-gold/30;
+  }
+
+  .heading-accent {
+    @apply relative inline-block;
+  }
+
+  .heading-accent::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 h-0.5 w-12 bg-gradient-to-r from-gold to-transparent;
+  }
+
+  .surface-card {
+    @apply rounded-xl border border-stone/50 bg-white p-6 shadow-soft transition-all duration-300;
+  }
+
+  .surface-card-hover {
+    @apply surface-card hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-card-hover;
+  }
+
+  .surface-card-featured {
+    @apply surface-card relative overflow-hidden border-stone/40 shadow-card;
+  }
+
+  .surface-card-featured::before {
+    content: '';
+    @apply absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-gold via-gold/60 to-gold/20;
+  }
+
+  .trust-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-stone/60 bg-white/80 px-3.5 py-1.5 text-xs font-medium text-ink backdrop-blur-sm;
+  }
+
+  .hero-visual-frame {
+    @apply relative overflow-hidden rounded-2xl border border-stone/50 bg-stone-panel p-8 shadow-card;
+  }
+
+  .hero-visual-frame::before {
+    content: '';
+    @apply pointer-events-none absolute inset-3 rounded-xl border border-white/60;
+  }
+
+  .thread-border-top {
+    @apply border-t border-transparent;
+    border-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(201, 166, 107, 0.5) 20%,
+        rgba(201, 166, 107, 0.8) 50%,
+        rgba(201, 166, 107, 0.5) 80%,
+        transparent 100%
+      )
+      1;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-stone/60 bg-white px-4 py-3 text-ink shadow-sm transition-colors focus:border-gold/60 focus:outline-none focus:ring-2 focus:ring-gold/20;
+  }
+
+  .prose-section h2 {
+    @apply mb-4 text-2xl sm:text-3xl;
+  }
+
+  .prose-section h3 {
+    @apply mb-2 mt-8 text-xl;
+  }
+
+  .prose-section ul {
+    @apply my-4 list-disc space-y-2 pl-5 text-muted;
+  }
+
+  .prose-section p {
+    @apply text-muted leading-relaxed;
   }
 }

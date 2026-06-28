@@ -1,6 +1,6 @@
 # Logo Clothing Shop → Stitch & Stone Co.
 
-Foundation repo for **stitchandstoneco.com** (website) and **go-to-market sales assets** (emails, one-pager). Logo Clothing Shop stays live at logoclothingshop.com until launch.
+Foundation repo for **logoclothingshop.com** (website launch) and **go-to-market sales assets** (emails, one-pager). Brand: Logo Clothing Shop today · soon Stitch & Stone Co. **stitchandstoneco.com** is not live yet.
 
 ---
 
@@ -9,9 +9,10 @@ Foundation repo for **stitchandstoneco.com** (website) and **go-to-market sales 
 | Workstream | Cursor thread | You edit | Never touch |
 |------------|---------------|----------|-------------|
 | **Website** | Website build thread | `src/`, `public/`, `content/copy/` | `content/sales/` |
-| **Go-to-market** | GTM / sales thread | `content/sales/`, `cases.json`, `docs/90-DAY-PLAN.md` | `src/` pages by hand |
+| **Go-to-market** | GTM / sales thread | `content/sales/`, `cases.json`, `docs/gtm/90-DAY-PLAN.md` | `src/` pages by hand |
 
-**Handoff for GTM thread:** [`docs/gtm/HANDOFF.md`](docs/gtm/HANDOFF.md)
+**Handoff for GTM thread:** [`docs/gtm/HANDOFF.md`](docs/gtm/HANDOFF.md)  
+**Session brief (read/update every session):** [`docs/PROJECT-BRIEF.md`](docs/PROJECT-BRIEF.md)
 
 ---
 
@@ -78,6 +79,7 @@ First time: run `npm install` from the repo root.
 | Astro + Tailwind scaffold with brand palette | Services hub + 4 service pages |
 | Home, Corporate Gifting, How It Works, Contact | Industries hub + 2–4 industry pages |
 | All 20 case study pages (from JSON) | About page |
+| Netlify deploy (generic URL) | Connect logoclothingshop.com · contact form |
 | Shared layout, components, JSON-LD schema | Photography via Astro Image |
 
 Full plan: [`docs/SITE-ARCHITECTURE.md`](docs/SITE-ARCHITECTURE.md)
@@ -87,9 +89,9 @@ Full plan: [`docs/SITE-ARCHITECTURE.md`](docs/SITE-ARCHITECTURE.md)
 ## GitHub backup vs live website
 
 **The whole repo can push to GitHub for backup.**  
-**Only `dist/` (from `npm run build`) goes live** when you connect Netlify or Cloudflare Pages.
+**Only `dist/` (from `npm run build`) goes live** on Netlify (currently generic URL; **logoclothingshop.com** custom domain next).
 
-Sales emails, one-pager, and internal notes in `content/sales/` stay in the repo but **never appear on stitchandstoneco.com** if you follow [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
+Sales emails, one-pager, and internal notes in `content/sales/` stay in the repo but **never appear on logoclothingshop.com** if you follow [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
 
 Recommendation: use a **private** GitHub repo if sales copy should not be public.
 
@@ -99,9 +101,10 @@ Recommendation: use a **private** GitHub repo if sales copy should not be public
 
 | Domain | Role |
 |--------|------|
-| stitchandstoneco.com | Primary (launch target) |
-| stitchstoneco.com | 301 → primary |
-| logoclothingshop.com | Redirect after launch |
+| logoclothingshop.com | **Launch domain** — connect to Netlify next (~2-week target) |
+| stitchandstoneco.com | Future primary — not live yet |
+| stitchstoneco.com | Future 301 → primary |
+| Redirect today | **None** — logoclothingshop.com does not redirect yet |
 
 ---
 

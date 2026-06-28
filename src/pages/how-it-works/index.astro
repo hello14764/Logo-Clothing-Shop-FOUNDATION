@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Button from '@/components/Button.astro';
 import CTABand from '@/components/CTABand.astro';
+import ImagePlaceholder from '@/components/ImagePlaceholder.astro';
 import PageHero from '@/components/PageHero.astro';
 import Section from '@/components/Section.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { site } from '@/lib/site';
 ---
 
@@ -12,25 +13,32 @@ import { site } from '@/lib/site';
   description="Our corporate gifting process: discover, curate, produce in-house, and deliver. One partner from first call to finished gifts in Michigan."
 >
   <PageHero
+    tag="Process"
     title="How it works"
     lead="A consultative process from first conversation to delivered gifts. One partner, one point of contact."
+    visual
   />
 
   <Section>
-    <ol class="grid gap-6 md:grid-cols-2">
+    <SectionHeader
+      eyebrow="Four steps"
+      title="From first call to delivered gifts"
+      description="No catalog browsing required. We learn your goals, curate options, produce in-house, and deliver."
+    />
+    <ol class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
         [
-          ['Discover', 'We start with a conversation about your goals, recipients, brand standards, budget, and timeline. No catalog browsing required.'],
-          ['Curate', 'We put together package options tailored to your organization. You review, refine, and approve before anything goes into production.'],
-          ['Produce', 'Embroidery, screen printing, and full-color decoration happen in-house at our Michigan shop. Quality and brand execution stay under our control.'],
-          ['Deliver', "Single-site delivery or ship-to-home for distributed teams and holiday programs. We coordinate logistics so you don't have to."],
+          ['Discover', 'We start with a conversation about your goals, recipients, brand standards, budget, and timeline.'],
+          ['Curate', 'We put together package options tailored to your organization. You review, refine, and approve before production.'],
+          ['Produce', 'Embroidery, screen printing, and decoration happen in-house at our Michigan shop.'],
+          ['Deliver', "Single-site delivery or ship-to-home for distributed teams and holiday programs."],
         ].map(([step, copy], i) => (
-          <li class="rounded-lg border border-stone/50 bg-white p-6">
-            <span class="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-gold/20 text-sm font-semibold text-gold-dark">
+          <li class="surface-card-hover relative pt-8">
+            <span class="absolute left-6 top-0 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gold/30 bg-white font-display text-lg font-semibold text-gold-dark shadow-soft">
               {i + 1}
             </span>
             <h3 class="mb-2 text-xl">{step}</h3>
-            <p class="text-muted">{copy}</p>
+            <p class="text-sm leading-relaxed text-muted">{copy}</p>
           </li>
         ))
       }
@@ -38,21 +46,24 @@ import { site } from '@/lib/site';
   </Section>
 
   <Section tone="alt">
-    <div class="prose-wide">
-      <h2>What we need from you</h2>
-      <ul>
-        <li>A sense of who receives the gifts and what occasion you're marking</li>
-        <li>Budget range and approximate quantity</li>
-        <li>Your logo and brand guidelines (if available)</li>
-        <li>Target delivery date</li>
-      </ul>
-      <p>Don't have everything figured out? That's what the discovery call is for.</p>
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div class="prose-section">
+        <SectionHeader eyebrow="Your part" title="What we need from you" accent />
+        <ul>
+          <li>A sense of who receives the gifts and what occasion you're marking</li>
+          <li>Budget range and approximate quantity</li>
+          <li>Your logo and brand guidelines (if available)</li>
+          <li>Target delivery date</li>
+        </ul>
+        <p>Don't have everything figured out? That's what the discovery call is for.</p>
+      </div>
+      <ImagePlaceholder variant="square" label="Process photo coming soon" />
     </div>
   </Section>
 
   <Section>
-    <div class="prose-wide">
-      <h2>What you can expect</h2>
+    <div class="prose-section max-w-3xl">
+      <SectionHeader eyebrow="Our promise" title="What you can expect" accent />
       <ul>
         <li>One dedicated point of contact throughout the program</li>
         <li>Clear timelines before production begins</li>
@@ -69,9 +80,9 @@ import { site } from '@/lib/site';
     <p class="mt-6">
       <a
         href={site.bookingUrl}
-        class="inline-flex items-center justify-center rounded-md border border-white/40 px-5 py-2.5 text-sm font-semibold text-white no-underline hover:border-white hover:bg-white/10"
+        class="text-sm font-semibold text-white/75 no-underline hover:text-gold-light"
       >
-        Or book directly on HubSpot
+        Or book directly on HubSpot →
       </a>
     </p>
   </CTABand>

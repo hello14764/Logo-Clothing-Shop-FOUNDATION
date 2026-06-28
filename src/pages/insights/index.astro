@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import CTABand from '@/components/CTABand.astro';
+import Card from '@/components/Card.astro';
+import PageHero from '@/components/PageHero.astro';
+import Section from '@/components/Section.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+---
+
+<BaseLayout
+  title="Insights"
+  description="Guides for marketing and HR teams planning corporate gifting and branded programs in Michigan."
+>
+  <PageHero
+    tag="Resources"
+    title="Insights"
+    lead="Guides for marketing and HR teams planning corporate gifting and branded programs in Michigan."
+  />
+
+  <Section>
+    <SectionHeader
+      eyebrow="Coming soon"
+      title="Articles and guides"
+      description="We're preparing practical guides on corporate gifting, industry-specific appreciation, and program planning. Check back soon — or start with a conversation."
+      centered
+    />
+    <div class="mx-auto grid max-w-3xl gap-6 md:grid-cols-3">
+      {
+        [
+          ['Corporate gifting 101', 'For marketing teams planning their first program'],
+          ['Construction appreciation', 'Milestone and crew gifting in the trades'],
+          ['Law & finance client gifts', 'Understated thank-yous that land well'],
+        ].map(([title, desc]) => (
+          <Card title={title}>
+            <p class="text-sm">{desc}</p>
+            <p class="mt-4 text-xs font-semibold uppercase tracking-wider text-gold">Coming soon</p>
+          </Card>
+        ))
+      }
+    </div>
+    <div class="mt-10 text-center">
+      <Button href="/contact/">Plan a Gifting Program</Button>
+    </div>
+  </Section>
+
+  <Section tone="alt">
+    <SectionHeader
+      centered
+      eyebrow="Lead magnets"
+      title="Free resources — later"
+      description="Downloadable guides and checklists will live here when ready. For now, book a call and we'll point you in the right direction."
+    />
+  </Section>
+
+  <CTABand
+    title="Need guidance now?"
+    description="Skip the waitlist. Tell us what you're planning and we'll help you think it through."
+  />
+</BaseLayout>
