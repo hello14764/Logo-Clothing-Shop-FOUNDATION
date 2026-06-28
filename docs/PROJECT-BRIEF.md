@@ -64,6 +64,28 @@ Lock these only when Joe confirms a change. Update HANDOFF + sales templates if 
 
 ---
 
+## Git / GitHub (this repo)
+
+**Commit author (locked for this repo):**
+
+| Field | Value |
+|-------|--------|
+| **Name** | Joe Toma |
+| **Email** | hello@logoclothingshop.com |
+
+Set locally (already configured in `.git/config`):
+
+```powershell
+git config user.email "hello@logoclothingshop.com"
+git config user.name "Joe Toma"
+```
+
+**GitHub:** Add and verify **hello@logoclothingshop.com** in GitHub → Settings → Emails so commits link to your account.
+
+**AI / Cursor:** Do not use global `git config`. Use repo-local settings above. Never commit as `cursoragent@cursor.com` or an unverified address.
+
+---
+
 ## Current focus
 
 **How to update:** One sentence on what matters *this week*. Overwrite each session.
